@@ -1,55 +1,17 @@
-# BringIt
+# GoBringIt
 
-LARGE SCALE TODOS (in order of greatest to least priority):
-- <del>Do Restaurant List (DONE)</del>
-- <del>Do Categories (DONE)</del>
-- <del>Do Menu Items (DONE)</del>
-- <del>Do Menu Sides (DONE)</del>
-- <del>Figure out Global User ID accessible throughout the app (DONE)</del>
-- <del>Do Adding Items/Sides to Cart</del>
-- Do Checkout
-- Do all restaurant hours & open/close switch
-- Do Stripe
-- Code Cleanup
+GoBringIt is an online food ordering app (https://apps.apple.com/bz/app/gobringit-delivery/id1141694543) and website (https://gobringit.com) used by thousands of Duke students and Durham locals. 
 
-SPECIFIC TODOS:
-GENERAL
-- Make sure all back buttons are custom (Alex)
-- Optimize log in (it sometimes takes 10+ seconds, even if nothing is input at all) (Chad)
-- <del>Add new photos to the database (I also want to learn how so I can play around with them) (Chad and Alex)</del>
-- Fix all bottom button bugs (something just happened, some don’t work and one disappeared completely) (Alex)
+PAY WITH FOOD POINTS: Order food to your dorm with food points or credit card!*
 
-RESTAURANT (DONE)
-- <del>Pull background image and display it (DONE) (Chad)</del>
+ORDER FAVORITES: Order from favorite restaurants like Sushi Love, Devil's Pizzeria, NaanStop, and Mediterra Grill to satisfy your ravenous college student appetite from morn' til night.
 
-ADD TO ORDER
-- Add empty states in AddToOrder if there are no sides or extras (Alex)
-- Make sure limits (e.g. pick 2) work with the radio buttons (right now you can select none or infinite) (Alex)
-- <del>Save item to DB cart with all the details when Add To Order is clicked (DONE) (Chad)</del>
+DELIVERY ANYWHERE: Whether you live on West, Central, East, or off-campus, delicious food is only minutes away.
 
-CHECKOUT
-- Fix the DeliverToPayWith bugs
-    - Make sure only one cell can be checked at once (and one must be checked at all times) (Alex)
-    - Pull address and payment info from DB (Chad)
-    - Link to/create ways to add new addresses or payment methods (Alex)
-- Pull db data to populate the tableview of items in cart (Chad)
-- Calculate the total cost from db data  (Alex)
-- Finalize checkout process (Chad)
-- EXTRA: Find out if we can calculate ETA  (Alex)
+BEAUTIFUL DESIGN: Our app was designed with elegance and simplicity in mind - go from hunger to a steak and fries in just a few taps.
 
-SCHEDULE
-- Pull past order data from db (Chad)
-- Populate the tableview with the data (Alex)
+LOW DELIVERY FEES: Starting at just $3 for delivery, GoBringIt delivers the most college-friendly prices in the biz!
 
-SCHEDULE DETAILS
-- Pull db data (Chad)
-- Present the data (Alex)
-- EXTRA: Add order again functionality  (Alex and Chad)
+*Currently for Duke students and local Durham residents only.
 
-SETTINGS
-- <del>User can reset password</del>
-
-Questions:
-- figure out where in DB Credit Card info should go
-- only Sushi Love has restaurant hours in the DB; other restaurants do not
-- figure out Password Recovery
+© 2019 Campus Enterprises, LLC
