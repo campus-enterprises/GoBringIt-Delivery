@@ -261,6 +261,22 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     }
                 }
             }
+            
+            if paymentOptionsArray!.contains("duke-food") || !comingFromCheckout {
+                let hasDukeCard = paymentMethods.filter(NSPredicate(format: "paymentMethodID == %d", "6")).count > 0
+                if !hasDukeCard {
+                    let dukeCard = PaymentMethod()
+                    dukeCard.paymentMethodID = 6
+                    dukeCard.userID = user.id
+                    dukeCard.paymentValue = "Duke Food Points/Flex"
+                    dukeCard.paymentString = "Duke Food Points/Flex"
+                    dukeCard.compoundKey = "\(dukeCard.paymentMethodID)-\(dukeCard.paymentValue)"
+                    
+                    try! realm.write {
+                        realm.add(dukeCard, update: .all)
+                    }
+                }
+            }
         }
     }
     
