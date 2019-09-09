@@ -109,7 +109,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                                 creditCard.userID = self.user.id
                                 creditCard.paymentMethodID = 2
                                 creditCard.paymentValue = card["cardID"] as! String
-                                creditCard.paymentString = "\(card["brand"] as! String) •••• \(card["lastFour"] as! String)"
+                                creditCard.paymentString = card["cardString"] as! String
                                 creditCard.compoundKey = "\(creditCard.paymentMethodID)-\(creditCard.paymentValue)"
 
                                 
@@ -262,7 +262,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             }
             
-            if paymentOptionsArray!.contains("duke-food") || !comingFromCheckout {
+            if paymentOptionsArray!.contains("duke-food-points") || !comingFromCheckout {
                 let hasDukeCard = paymentMethods.filter(NSPredicate(format: "paymentMethodID == %d", "6")).count > 0
                 if !hasDukeCard {
                     let dukeCard = PaymentMethod()
@@ -294,7 +294,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             addCreditCardButton.isHidden = true
         }
         
-        if paymentOptionsArray!.contains("duke-food-points") || !comingFromCheckout {
+        if paymentOptionsArray!.contains("duke-food") || !comingFromCheckout {
             addDukeCardButton.isHidden = false
             retrieveDukeCards()
         } else {

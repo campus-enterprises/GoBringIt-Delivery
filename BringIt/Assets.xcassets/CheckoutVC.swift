@@ -59,7 +59,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var subtotalIndex = 0
     var deliveryFeeIndex = 1
     var goBringItCreditIndex = 2
-    var totalCostIndex = 3
+    var salesTaxIndex = 3
+    var totalCostIndex = 4
     
     // Passed from previousVC
 //    var restaurantID = ""
@@ -307,6 +308,13 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /* Iterate over menu items in cart and add their total costs to the subtotal */
     func calculateTotal() -> Double {
         
+        // Row Indices
+        subtotalIndex = 0
+        deliveryFeeIndex = 1
+        goBringItCreditIndex = 2
+        salesTaxIndex = 3
+        totalCostIndex = 4
+        
         let realm = try! Realm() // Initialize Realm
         
         // Base cost is 0.0
@@ -320,6 +328,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         var subtotal = total
         
         var gbiCreditUsed = 0.0;
+        var salesTax = 0.0;
         
         // Add delivery fee
         if deliveryOrPickup.selectedSegmentIndex == 0 {
@@ -338,13 +347,24 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else{
             goBringItCreditIndex = -1
+            salesTaxIndex -= 1
             totalCostIndex -= 1
+        }
+        
+        salesTax = total * restaurant.salesTaxAmount
+
+        if (salesTax <= 0){
+            salesTaxIndex = -1
+            totalCostIndex -= 1
+        } else{
+            total += salesTax
         }
         
         // Update order subtotal
         try! realm.write {
             order.subtotal = subtotal
             order.gbiCreditUsed = gbiCreditUsed
+            order.salesTax = salesTax
         }
         
         // Display total price
@@ -467,7 +487,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         subtotalIndex = 0
         deliveryFeeIndex = 1
         goBringItCreditIndex = 2
-        totalCostIndex = 3
+        salesTaxIndex = 3
+        totalCostIndex = 4
     }
     
     func pickupSelected() {
@@ -486,7 +507,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         subtotalIndex = 0
         deliveryFeeIndex = -1
         goBringItCreditIndex = 1
-        totalCostIndex = 2
+        salesTaxIndex = 2
+        totalCostIndex = 3
     }
     
     @IBAction func checkoutButtonTapped(_ sender: UIButton) {
@@ -636,6 +658,9 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if order.gbiCreditUsed > 0 {
                 segments+=1 //GBI Credit
             }
+            if order.salesTax > 0 {
+                segments+=1
+            }
             return segments
         }
 
@@ -748,6 +773,17 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     return cell
                 }
             }
+            else if indexPath.row == salesTaxIndex {
+                if order.salesTax > 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "costCell", for: indexPath)
+                    
+                    cell.textLabel?.text = "Sales Tax"
+                    cell.detailTextLabel?.text = "$" + String(format: "%.2f", order.salesTax)
+                    
+                    
+                    return cell
+                }
+            }
             // Total
             else if indexPath.row == totalCostIndex {
                 
@@ -755,9 +791,6 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 cell.textLabel?.text = "Total"
                 cell.detailTextLabel?.text = "$" + String(format: "%.2f", calculateTotal())
-                
-//                cell.textLabel?.font = Constants.mediumFont
-//                cell.detailTextLabel?.font = Constants.mediumFont
                 
                 return cell
             }

@@ -74,6 +74,7 @@ class Restaurant: Object {
     @objc dynamic var phoneNumber = ""
     @objc dynamic var deliveryFee = 0.0
     @objc dynamic var minimumPrice = 0.0
+    @objc dynamic var salesTaxAmount = 0.0
     @objc dynamic var announcement = ""
     @objc dynamic var paymentOptions = ""
     @objc dynamic var deliveryOnly = true
@@ -178,6 +179,7 @@ class Order: Object {
     @objc dynamic var subtotal = 0.0 
     @objc dynamic var deliveryFee = 0.0
     @objc dynamic var gbiCreditUsed = 0.0
+    @objc dynamic var salesTax = 0.0
     @objc dynamic var isComplete = false
     @objc dynamic var isDelivery = true
     @objc dynamic var paidWithString = ""

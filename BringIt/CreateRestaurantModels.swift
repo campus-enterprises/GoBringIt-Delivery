@@ -183,6 +183,7 @@ extension RestaurantsHomeViewController {
                             restaurant.restaurantHours = retrievedRestaurantInfo["restaurantHours"] as? String ?? ""
                             restaurant.phoneNumber = (retrievedRestaurantInfo["phoneNumber"] as! String)
                             restaurant.minimumPrice = Double(retrievedRestaurantInfo["minimumPrice"] as! String)!
+                            restaurant.salesTaxAmount = Double(retrievedRestaurantInfo["salesTaxAmount"] as! String)!
                             restaurant.paymentOptions = retrievedRestaurantInfo["paymentOptions"] as! String
                             
                             // Check if restaurant has a saved address
