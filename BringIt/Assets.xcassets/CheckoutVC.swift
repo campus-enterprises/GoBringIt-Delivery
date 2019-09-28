@@ -211,11 +211,13 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     deliveryOrPickup.isUserInteractionEnabled = false;
                     pickupIndex = 0
                     deliveryIndex = -1
+                    deliveryOrPickup.selectedSegmentIndex = pickupIndex
                 } else if (isOpenDelivery){ //delivery only
                     deliveryOrPickup.insertSegment(withTitle: "Delivery Only", at: 0, animated: false)
                     deliveryOrPickup.isUserInteractionEnabled = false;
                     deliveryIndex = 0
                     pickupIndex = -1
+                    deliveryOrPickup.selectedSegmentIndex = deliveryIndex
                 } else {
                     deliveryOrPickup.insertSegment(withTitle: "Delivery", at: 0, animated: false)
                     deliveryOrPickup.insertSegment(withTitle: "Pickup", at: 1, animated: false)
