@@ -18,7 +18,7 @@ target 'BringIt' do
 #  pod 'CryptoSwift'
   
   # New Pods
-  pod 'RealmSwift' # for local database
+  pod 'RealmSwift', '~> 3.18.0' # for local database
   #pod 'Timepiece' # for simple date management
   #pod 'Hero' # for elegant transitions
   pod 'Moya' # for an abstracted netowrk layer

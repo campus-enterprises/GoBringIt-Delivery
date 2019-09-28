@@ -30,7 +30,9 @@ class SendPhoneVerificationVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         // Setup UI
         setupUI()
     }

@@ -34,7 +34,12 @@ extension FeaturedDishTableViewCell {
         myCollectionView.delegate = dataSourceDelegate
         myCollectionView.dataSource = dataSourceDelegate
         myCollectionView.tag = row
-        myCollectionView.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+           myCollectionView.backgroundColor = UIColor.systemBackground
+        } else {
+            myCollectionView.backgroundColor = UIColor.white
+        }
+        
         myCollectionView.setContentOffset(myCollectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
         myCollectionView.reloadData()
         myCollectionViewWidth.constant = UIScreen.main.bounds.width

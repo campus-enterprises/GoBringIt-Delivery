@@ -30,7 +30,9 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         // Setup UI
         setupUI()
         
@@ -169,7 +171,12 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.font = Constants.headerFont
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.textAlignment = .left
-        header.backgroundView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            header.backgroundView?.backgroundColor = UIColor.systemBackground
+        } else {
+            header.backgroundView?.backgroundColor = UIColor.white
+        }
+        
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         
     }

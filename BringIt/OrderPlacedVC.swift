@@ -19,18 +19,21 @@ class OrderPlacedVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // MARK: - Variables
     
     var totalSpent = 0.0
-    var ETA = ""
+    var confirmationMessage = ""
     var streetAddress = ""
+    var isPickup = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if (streetAddress == "" || streetAddress == "NULL"){
+            isPickup = true;
+        }
         // Setup UI
         setupUI()
         
         // Setup tableview
         setupTableView()
-        orderMessage.text = ETA
+        orderMessage.text = confirmationMessage
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,6 +81,9 @@ class OrderPlacedVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (isPickup) {
+            return 1
+        }
         return 2
     }
     

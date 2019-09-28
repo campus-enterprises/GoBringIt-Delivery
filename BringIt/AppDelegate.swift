@@ -41,7 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set default navigation bar attributes
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BrandonGrotesque-Medium", size: 17)!, NSAttributedString.Key.foregroundColor: Constants.darkGray] // font color
         UINavigationBar.appearance().tintColor = UIColor.darkGray // button color
-        UINavigationBar.appearance().barTintColor = UIColor.white // bar color
+        
+//        if #available(iOS 13.0, *) {// bar color
+//            UINavigationBar.appearance().barTintColor = UIColor.systemGroupedBackground
+//        } else {
+            UINavigationBar.appearance().barTintColor = UIColor.white
+//        }
         
         print("Setting Realm schema and performing migrations.")
         

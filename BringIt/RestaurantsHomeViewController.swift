@@ -61,7 +61,9 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
 //        let realm = try! Realm() // Initialize Realm
         
         // Set base index
@@ -109,7 +111,7 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
     func setupTableView() {
         
         // Set tableView cells to custom height and automatically resize if needed
-        self.myTableView.estimatedRowHeight = 230
+        self.myTableView.estimatedRowHeight = 300
         self.myTableView.rowHeight = UITableView.automaticDimension
         
         // Add refresh control capability
@@ -383,7 +385,7 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
         if indexPath.section == promotionsIndex {
             return 221
         } else if indexPath.section == restaurantsIndex {
-            return 255
+            return UITableView.automaticDimension
         } else {
             return 80
         }
@@ -404,7 +406,11 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
             let restaurant = restaurants[indexPath.row]
             
             cell.name.text = restaurant.name
-            cell.cuisineType.text = restaurant.cuisineType + " • " + restaurant.restaurantHours.getOpenHoursString()
+            if (restaurant.deliveryOnly == 1){
+                cell.cuisineType.text = restaurant.cuisineType + " • " + restaurant.restaurantHours.getOpenHoursString()
+            } else {
+                cell.cuisineType.text = restaurant.cuisineType + " • " + restaurant.pickupHours.getOpenHoursString()
+            }
             
 //            if let image = restaurant.image {
 //                cell.bannerImage.image = UIImage(data: image as Data)
@@ -496,7 +502,11 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
         header.textLabel?.font = Constants.headerFont
         header.textLabel?.textColor = Constants.darkGray
         header.textLabel?.textAlignment = .left
-        header.backgroundView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            header.backgroundView?.backgroundColor = UIColor.systemBackground
+        } else {
+            header.backgroundView?.backgroundColor = UIColor.white
+        }
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         
     }

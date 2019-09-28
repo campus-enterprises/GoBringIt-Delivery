@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SkeletonView
 
-class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SkeletonTableViewDataSource {
+class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SkeletonTableViewDataSource, UIAdaptivePresentationControllerDelegate {
     
     // MARK: - IBOutlets
     
@@ -37,7 +37,9 @@ class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         // Setup Realm
         setupRealm()
         
@@ -56,6 +58,10 @@ class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         
         // Check if there is a cart to display
+        checkCart()
+    }
+    
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
         checkCart()
     }
     
@@ -231,7 +237,7 @@ class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITable
         
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = Constants.headerFont
-        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.textColor = UIColor.systemGray
         header.textLabel?.textAlignment = .left
         header.backgroundView?.backgroundColor = UIColor.white
         header.textLabel?.text = header.textLabel?.text?.uppercased()
@@ -266,6 +272,7 @@ class MenuCategoryViewController: UIViewController, UITableViewDelegate, UITable
             addToCartVC.restaurantID = restaurantID
             addToCartVC.menuItem = selectedMenuItem
             addToCartVC.deliveryFee = restaurant.deliveryFee
+            addToCartVC.presentationController?.delegate = self
         } else if segue.identifier == "toCheckoutFromMenuCategory" {
             
             let nav = segue.destination as! UINavigationController

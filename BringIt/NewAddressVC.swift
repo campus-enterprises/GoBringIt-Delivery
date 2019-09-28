@@ -40,7 +40,9 @@ class NewAddressVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         setupRealm()
         
         // Set title

@@ -13,6 +13,7 @@ import RealmSwift
 import Stripe
 
 extension CheckoutVC {
+    
     func clearCart(completion: @escaping (_ result: Int) -> Void) {
         // Setup Moya provider and send network request
         let provider = MoyaProvider<CombinedAPICalls>()
@@ -112,12 +113,13 @@ extension CheckoutVC {
             paymentValue: paymentMethodValueString,
             isPickup: order.isDelivery ? "0" : "1",
             amount: "\(order.subtotal*100)",
-            deliveryFee: "\(order.deliveryFee*100)",
+            deliveryFee: "\(order.isDelivery ? order.deliveryFee*100 : 0)",
             creditUsed: "\(order.gbiCreditUsed*100)",
             paymentType: "\(order.paymentMethod!.paymentMethodID)",
             name: user.fullName,
             rememberPayment: order.paymentMethod!.unsaved ? "1" : "-1",
-            addressId:  "\(order.address!.id)"
+            addressId:  "\(order.address?.id ?? "NULL")",
+            instructions: "\(order.instructions)"
         )) { result in
             switch result {
             case let .success(moyaResponse):
@@ -139,6 +141,8 @@ extension CheckoutVC {
                             self.user.pastOrders.append(self.order)
                         }
                         
+                        self.confirmationMessage = response["confirmationMessage"] as! String;
+                            
                         self.myActivityIndicator.stopAnimating()
                         
                         print(self.order.id)

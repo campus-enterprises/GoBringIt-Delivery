@@ -44,6 +44,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // Setup UI
         setupUI()
@@ -66,6 +69,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        checkCart()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
@@ -79,7 +86,12 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         setCustomBackButton()
         viewCartButtonView.layer.cornerRadius = Constants.cornerRadius
 //        viewCartViewToBottom.constant = viewCartView.frame.height // start offscreen
-        viewCartView.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            viewCartView.backgroundColor = UIColor.systemBackground
+        } else {
+            viewCartView.backgroundColor = UIColor.white
+        }
+        
         self.viewCartView.layer.shadowColor = Constants.lightGray.cgColor
         self.viewCartView.layer.shadowOpacity = 0.15
         self.viewCartView.layer.shadowRadius = Constants.shadowRadius
@@ -267,7 +279,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.section == bannerIndex {
-            return 346
+            return UITableView.automaticDimension
         } else if indexPath.section == announcementIndex {
             return UITableView.automaticDimension
         } else if indexPath.section == featuredDishesIndex {
@@ -283,11 +295,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             cell.delegate = self
             cell.restaurantName.text = restaurant.name
-            cell.cuisineAndHours.text = restaurant.cuisineType + " • " + restaurant.restaurantHours.getOpenHoursString()
+//            cell.restaurantName.textColor = UIColor.systemGray
+            if (restaurant.deliveryOnly == 1){
+                cell.cuisineAndHours.text = restaurant.cuisineType + "\n" + restaurant.restaurantHours.getOpenHoursString()
+            } else {
+                cell.cuisineAndHours.text = restaurant.cuisineType + "\nPickup: " + restaurant.pickupHours.getOpenHoursString() + "\nDelivery: " + restaurant.restaurantHours.getOpenHoursString()
+            }
             if let image = restaurant.image {
                 cell.bannerImage.image = UIImage(data: image as Data)
             }
-            
             return cell
 
         } else if indexPath.section == callRestaurantIndex {
@@ -346,9 +362,19 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = Constants.headerFont
-        header.textLabel?.textColor = UIColor.black
+        
+        if #available(iOS 13.0, *) {
+            header.textLabel?.textColor = UIColor.label
+        } else {
+            header.textLabel?.textColor = UIColor.black
+        }
+        
         header.textLabel?.textAlignment = .left
-        header.backgroundView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+           header.backgroundView?.backgroundColor = UIColor.systemBackground
+        } else {
+            header.backgroundView?.backgroundColor = UIColor.white
+        }
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         
     }

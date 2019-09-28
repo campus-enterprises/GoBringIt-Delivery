@@ -35,6 +35,9 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         setupRealm()
         paymentOptionsArray = paymentOptions.split(separator: ",")
         setupUI()
@@ -42,6 +45,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Setup tableview
         setupTableView()
+        addDukeCardButton.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -295,7 +299,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         if paymentOptionsArray!.contains("duke-food") || !comingFromCheckout {
-            addDukeCardButton.isHidden = false
+            addDukeCardButton.isHidden = true
             retrieveDukeCards()
         } else {
             addDukeCardButton.isHidden = true
@@ -361,7 +365,11 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         header.textLabel?.font = Constants.headerFont
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.textAlignment = .left
-        header.backgroundView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            header.backgroundView?.backgroundColor = UIColor.systemBackground
+        } else {
+           header.backgroundView?.backgroundColor = UIColor.white
+        }
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         
     }

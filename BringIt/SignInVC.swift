@@ -43,7 +43,10 @@ class SignInVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+
         print("In SignInVC viewDidLoad")
 
         // Setup text field and button UI

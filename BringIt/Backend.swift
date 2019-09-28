@@ -188,7 +188,7 @@ extension APICalls : TargetType {
 
 
 enum CombinedAPICalls {
-    case placeOrder(uid: String, restaurantID: String, paymentValue: String, isPickup: String, amount: String, deliveryFee: String, creditUsed: String, paymentType: String, name: String, rememberPayment: String, addressId: String)
+    case placeOrder(uid: String, restaurantID: String, paymentValue: String, isPickup: String, amount: String, deliveryFee: String, creditUsed: String, paymentType: String, name: String, rememberPayment: String, addressId: String, instructions: String)
     case sendPhoneVerification(phoneNumber: String)
     case checkPhoneVerificationCode(phoneNumber: String, code: String)
     case clearCart(uid: String)
@@ -197,6 +197,7 @@ enum CombinedAPICalls {
     case addAddress(uid: String, address: String, apartment: String, campus: String)
     case deleteAddress(uid: String, addressId: String)
     case retrieveAddresses(uid: String)
+    case fetchConfirmationMessage(restaurantId: String, isPickup: Int)
 }
 
 extension CombinedAPICalls : TargetType {
@@ -206,7 +207,7 @@ extension CombinedAPICalls : TargetType {
     var baseURL: URL { return URL(string: Environment.combinedBackendURL.absoluteString)! }
     var path: String {
         switch self {
-        case .placeOrder(_,_,_,_,_,_,_,_,_,_,_):
+        case .placeOrder(_,_,_,_,_,_,_,_,_,_,_,_):
             return "/placeOrder.php"
         case .sendPhoneVerification(_):
             return "/sendPhoneVerification.php"
@@ -224,12 +225,14 @@ extension CombinedAPICalls : TargetType {
             return "/deleteAddress.php"
         case .retrieveAddresses(_):
             return "/retrieveAccountAddresses.php"
+        case .fetchConfirmationMessage(_,_):
+            return "/fetchConfirmationMessage.php"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .placeOrder, .sendPhoneVerification, .checkPhoneVerificationCode, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses:
+        case .placeOrder, .sendPhoneVerification, .checkPhoneVerificationCode, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
             return .post
         }
 
@@ -241,7 +244,7 @@ extension CombinedAPICalls : TargetType {
     
     var task: Task {
         switch self {
-        case .placeOrder(let uid, let restaurantID, let payingWithCC, let isPickup, let amount, let deliveryFee, let creditUsed, let paymentType, let name, let rememberPayment, let addressId):
+        case .placeOrder(let uid, let restaurantID, let payingWithCC, let isPickup, let amount, let deliveryFee, let creditUsed, let paymentType, let name, let rememberPayment, let addressId, let instructions):
             return .requestParameters(parameters: ["uid": uid,
                                                    "cid": restaurantID,
                                                    "pmt": payingWithCC,
@@ -253,7 +256,8 @@ extension CombinedAPICalls : TargetType {
                                                    "name": name,
                                                    "mobile": "1",
                                                    "remember_payment": rememberPayment,
-                                                   "address_id": addressId
+                                                   "address_id": addressId,
+                                                   "instructions": instructions
                 ], encoding: JSONEncoding.default)
         case .sendPhoneVerification(let phoneNumber):
             return .requestParameters(parameters: ["phoneNumber": phoneNumber], encoding: JSONEncoding.default)
@@ -276,6 +280,8 @@ extension CombinedAPICalls : TargetType {
             return .requestParameters(parameters: ["uid": uid, "addressId": addressId], encoding: JSONEncoding.default)
         case .retrieveAddresses(let uid):
             return .requestParameters(parameters: ["uid": uid], encoding: JSONEncoding.default)
+        case .fetchConfirmationMessage(let restaurantId, let isPickup):
+            return .requestParameters(parameters: ["restaurantId": restaurantId, "isPickup": isPickup], encoding: JSONEncoding.default)
         }
     }
 }

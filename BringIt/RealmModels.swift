@@ -71,13 +71,14 @@ class Restaurant: Object {
     @objc dynamic var name = ""
     @objc dynamic var cuisineType = ""
     @objc dynamic var restaurantHours = ""
+    @objc dynamic var pickupHours = ""
     @objc dynamic var phoneNumber = ""
     @objc dynamic var deliveryFee = 0.0
     @objc dynamic var minimumPrice = 0.0
     @objc dynamic var salesTaxAmount = 0.0
     @objc dynamic var announcement = ""
     @objc dynamic var paymentOptions = ""
-    @objc dynamic var deliveryOnly = true
+    @objc dynamic var deliveryOnly = 1
     @objc dynamic var address = ""
     let promotions = List<Promotion>()
     let mostPopularDishes = List<MenuItem>()
@@ -88,7 +89,11 @@ class Restaurant: Object {
     }
     
     func isOpen() -> Bool {
-        return restaurantHours.isRestaurantOpen()
+        if (deliveryOnly == 1){
+            return restaurantHours.isRestaurantOpen()
+        } else {
+            return restaurantHours.isRestaurantOpen() || pickupHours.isRestaurantOpen()
+        }
     }
 }
 
@@ -183,4 +188,5 @@ class Order: Object {
     @objc dynamic var isComplete = false
     @objc dynamic var isDelivery = true
     @objc dynamic var paidWithString = ""
+    @objc dynamic var instructions = ""
 }

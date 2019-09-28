@@ -185,6 +185,7 @@ extension RestaurantsHomeViewController {
                             restaurant.minimumPrice = Double(retrievedRestaurantInfo["minimumPrice"] as! String)!
                             restaurant.salesTaxAmount = Double(retrievedRestaurantInfo["salesTaxAmount"] as! String)!
                             restaurant.paymentOptions = retrievedRestaurantInfo["paymentOptions"] as! String
+                            restaurant.pickupHours = retrievedRestaurantInfo["pickupHours"] as? String ?? ""
                             
                             // Check if restaurant has a saved address
                             if let address = retrievedRestaurantInfo["restaurantAddress"] as? String {
@@ -196,7 +197,7 @@ extension RestaurantsHomeViewController {
                             // Check if restaurant accepts pickup as well
                             if let deliveryOnly = retrievedRestaurantInfo["deliveryOnly"] as? String {
                                 print("\(restaurant.name) value for deliveryOnly is: \(deliveryOnly)")
-                                restaurant.deliveryOnly = deliveryOnly == "0" ? false : true
+                                restaurant.deliveryOnly = Int(deliveryOnly) ?? 1 //default delivery only
                             }
                             
                             // Check if there's a hardcoded delivery fee

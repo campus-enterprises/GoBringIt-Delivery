@@ -43,6 +43,9 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // Setup Realm
         setupRealm()
@@ -131,7 +134,12 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.title = menuItem.name
         
         viewCartButtonView.layer.cornerRadius = Constants.cornerRadius
-        viewCartView.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            viewCartView.backgroundColor = UIColor.systemBackground
+        } else {
+            viewCartView.backgroundColor = UIColor.white
+        }
+        
         self.viewCartView.layer.shadowColor = Constants.lightGray.cgColor
         self.viewCartView.layer.shadowOpacity = 0.15
         self.viewCartView.layer.shadowRadius = Constants.shadowRadius
@@ -386,8 +394,13 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 }
             }
         }
-        
+        if #available(iOS 13.0, *) {
+            if let pvc = self.presentationController {
+                pvc.delegate?.presentationControllerWillDismiss?(pvc)
+            }
+        }
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     // MARK: - Table view data source
@@ -557,7 +570,12 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         header.textLabel?.font = Constants.headerFont
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.textAlignment = .left
-        header.backgroundView?.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            header.backgroundView?.backgroundColor = UIColor.systemBackground
+        } else {
+            header.backgroundView?.backgroundColor = UIColor.white
+        }
+        
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         
     }
