@@ -289,8 +289,14 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == dishesIndex {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "menuCategoryCell", for: indexPath)
         
-        if indexPath.section == bannerIndex {
+           cell.textLabel?.text = menuCategories[indexPath.row].name
+            
+           return cell
+        }
+        else if indexPath.section == bannerIndex {
             let cell = tableView.dequeueReusableCell(withIdentifier: "bannerCell", for: indexPath) as! BannerTableViewCell
             
             cell.delegate = self
@@ -319,12 +325,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             cell.textLabel?.text = restaurant.announcement
             
             return cell
-        } else if indexPath.section == dishesIndex {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "menuCategoryCell", for: indexPath)
-        
-        cell.textLabel?.text = menuCategories[indexPath.row].name
-        
-        return cell 
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "featuredDishTableViewCell", for: indexPath) 

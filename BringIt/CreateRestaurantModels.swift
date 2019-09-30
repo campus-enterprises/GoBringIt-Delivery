@@ -820,10 +820,7 @@ extension RestaurantDetailViewController {
                             
                         }
                     }
-                    
-                    let sortedMenuCategories = self.menuCategories.sorted(by: {$0.name < $1.name})
-                    self.menuCategories = sortedMenuCategories
-                    
+                                        
                     self.myTableView.hideSkeleton()
                     self.myTableView.reloadData()
                     
