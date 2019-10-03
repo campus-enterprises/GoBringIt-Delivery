@@ -108,8 +108,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // TO-DO: Check if coming from SignInVC
         checkIfLoggedIn()
-        calculateDeliveryFee()
         setupUI()
+        calculateDeliveryFee()
         totalAmount = calculateTotal()
         myTableView.reloadData()
         checkButtonStatus()
@@ -224,7 +224,11 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     deliveryOrPickup.isUserInteractionEnabled = true
                     deliveryIndex = 0
                     pickupIndex = 1
-                    deliveryOrPickup.selectedSegmentIndex = pickupIndex
+                    if (order.isDelivery){
+                        deliveryOrPickup.selectedSegmentIndex = deliveryIndex
+                    } else{
+                        deliveryOrPickup.selectedSegmentIndex = pickupIndex
+                    }
                 }
             } else {
                 deliveryOrPickup.insertSegment(withTitle: "Delivery", at: 0, animated: false)
@@ -232,7 +236,11 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 deliveryOrPickup.isUserInteractionEnabled = true
                 deliveryIndex = 0
                 pickupIndex = 1
-                deliveryOrPickup.selectedSegmentIndex = pickupIndex
+                if (order.isDelivery){
+                    deliveryOrPickup.selectedSegmentIndex = deliveryIndex
+                } else{
+                    deliveryOrPickup.selectedSegmentIndex = pickupIndex
+                }
             }
         }
         
