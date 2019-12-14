@@ -187,7 +187,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                         nextTimeButtonTitle: "Next time",
                                                         skipButtonTitle: "Skip")
         siren.rulesManager = RulesManager(majorUpdateRules: .critical,
-                                          minorUpdateRules: .annoying,
+                                          minorUpdateRules: .critical,
                                           patchUpdateRules: .critical,
                                           revisionUpdateRules: .relaxed)
         
