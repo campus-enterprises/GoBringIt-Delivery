@@ -1,21 +1,21 @@
 PODS:
-  - Alamofire (4.9.0)
-  - IQKeyboardManagerSwift (6.5.1)
+  - Alamofire (4.9.1)
+  - IQKeyboardManagerSwift (6.5.4)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - Realm (3.19.0):
-    - Realm/Headers (= 3.19.0)
-  - Realm/Headers (3.19.0)
-  - RealmSwift (3.19.0):
-    - Realm (= 3.19.0)
+  - Realm (4.1.1):
+    - Realm/Headers (= 4.1.1)
+  - Realm/Headers (4.1.1)
+  - RealmSwift (4.1.1):
+    - Realm (= 4.1.1)
   - Result (4.1.0)
   - SendGrid (2.2.0)
-  - Siren (5.2.1)
+  - Siren (5.2.3)
   - SkeletonView (1.8.2)
-  - Stripe (17.0.2)
+  - Stripe (18.3.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -28,17 +28,16 @@ DEPENDENCIES:
   - Stripe
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - IQKeyboardManagerSwift
-    - Siren
-    - Stripe
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - Moya
     - Realm
     - RealmSwift
     - Result
+    - Siren
     - SkeletonView
+    - Stripe
 
 EXTERNAL SOURCES:
   SendGrid:
@@ -50,17 +49,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/scottkawai/sendgrid-swift.git
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
-  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
-  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
+  Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
+  RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SendGrid: 0554c988d042609ab63f4388b96b093b82c091a7
-  Siren: 8a22581dcf49ff12752531c471761c15b2c7e272
+  Siren: 996f37869eae1f343f8c11f17d90c9c8da90bd4c
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
-  Stripe: 6c9ab10f087ca76c3cd7311462e383434921bdf8
+  Stripe: 35b9a54e698c82163d2ef105187a996d009fd386
 
 PODFILE CHECKSUM: 462397398c4957eefeda84e5af34c66cb8956287
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.4

@@ -80,6 +80,7 @@ class Restaurant: Object {
     @objc dynamic var paymentOptions = ""
     @objc dynamic var deliveryOnly = 1
     @objc dynamic var address = ""
+    @objc dynamic var deliveryType = 0 // 0 means delivers anywhere, 1 means west-only
     let promotions = List<Promotion>()
     let mostPopularDishes = List<MenuItem>()
 //    let menuCategories = List<MenuCategory>()

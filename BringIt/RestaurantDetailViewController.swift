@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SkeletonView
 
-class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SkeletonTableViewDataSource {
+class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SkeletonTableViewDataSource, UIAdaptivePresentationControllerDelegate {
     
     // MARK: - IBOutlets
 
@@ -428,6 +428,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             addToCartVC.menuItem = selectedMenuItem
             addToCartVC.restaurantID = restaurant.id
             addToCartVC.deliveryFee = restaurant.deliveryFee
+            addToCartVC.presentationController?.delegate = self
         }
     }
     

@@ -197,7 +197,11 @@ extension RestaurantsHomeViewController {
                             // Check if restaurant accepts pickup as well
                             if let deliveryOnly = retrievedRestaurantInfo["deliveryOnly"] as? String {
                                 print("\(restaurant.name) value for deliveryOnly is: \(deliveryOnly)")
-                                restaurant.deliveryOnly = Int(deliveryOnly) ?? 1 //default delivery only
+                                restaurant.deliveryOnly = Int(deliveryOnly) ?? 1 // default delivery only
+                            }
+                            
+                            if let deliveryType = retrievedRestaurantInfo["deliveryType"] as? String{
+                                restaurant.deliveryType = Int(deliveryType) ?? 0 // default deliver everywhere
                             }
                             
                             // Check if there's a hardcoded delivery fee

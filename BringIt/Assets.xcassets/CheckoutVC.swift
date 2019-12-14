@@ -13,7 +13,7 @@ import Alamofire
 import AudioToolbox
 import SendGrid
 
-class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
+class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {    
     
     // MARK: - IBOutlets
     
@@ -114,6 +114,10 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         myTableView.reloadData()
         checkButtonStatus()
     
+    }
+    
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        viewWillAppear(false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -452,6 +456,12 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 return
             }
+            
+            if self.restaurant.deliveryType == 1 && !filteredAddresses.first!.campus.lowercased().hasPrefix("west") {
+                checkoutButton.setTitle("West Campus delivery only", for: .normal)
+                return
+            }
+
         }
         
         // Check that there is a payment method selected
@@ -950,7 +960,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 myTableView.deleteRows(at: [indexPath], with: .automatic)
                 
                 // Reload tableview and adjust tableview height and recalculate costs
-                calculateTotal()
+                self.totalAmount = calculateTotal()
                 myTableView.reloadData()
                 updateViewConstraints()
                 checkButtonStatus()
@@ -968,6 +978,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let addToCartVC = nav.topViewController as! AddToCartVC
             addToCartVC.menuItem = selectedItem
             addToCartVC.comingFromCheckout = true
+            addToCartVC.presentationController?.delegate = self
         } else if segue.identifier == "toOrderPlaced" {
             
             print("Preparing for toOrderPlaced segue")
@@ -1017,6 +1028,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let realm = try! Realm() // Initialize Realm
             let filteredAddresses = realm.objects(DeliveryAddress.self).filter("userID = %@ AND isCurrent = %@", user.id, NSNumber(booleanLiteral: true))
             addressesVC.order = order
+            addressesVC.deliveryType = self.restaurant.deliveryType
             if filteredAddresses.count > 0 {
                 addressesVC.selectedAddressId = filteredAddresses.first!.id
             }

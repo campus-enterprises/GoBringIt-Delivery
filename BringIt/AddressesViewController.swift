@@ -27,6 +27,7 @@ class AddressesViewController: UIViewController, UITableViewDelegate, UITableVie
     var order = Order()
     var user = User()
     var selectedAddressId = "-1"
+    var deliveryType = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,10 +108,18 @@ class AddressesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         cell.textLabel?.text = addressString
-        
+
         // Change checkmark color
         cell.tintColor = Constants.green
         
+        if self.deliveryType == 1 && !address.campus.lowercased().hasPrefix("west") {
+            cell.isUserInteractionEnabled = false
+            cell.textLabel?.isEnabled = false
+            let realm = try! Realm() // Initialize Realm
+            try! realm.write() {
+                address.isCurrent = false
+            }
+        }
         if address.isCurrent {
             cell.accessoryType = .checkmark
         } else {
@@ -121,7 +130,11 @@ class AddressesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Default Address"
+        if (deliveryType == 1){
+            return "Select an Address (West Campus Only)"
+        } else {
+            return "Select an Address"
+        }
     }
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
