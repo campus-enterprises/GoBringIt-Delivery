@@ -164,6 +164,10 @@ extension CheckoutVC {
 //                        self.dispatch_group.wait(timeout: .distantFuture)
                         
                         self.performSegue(withIdentifier: "toOrderPlaced", sender: self)
+                    } else {
+                        let errorMessage = "Unfortunately, we could not place your order. " +
+                            (response["message"] as! String)
+                        self.showConfirmViewError(errorTitle: "Error Placing Order", errorMessage: errorMessage)
                     }
                     
                 } catch {

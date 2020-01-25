@@ -198,6 +198,7 @@ enum CombinedAPICalls {
     case deleteAddress(uid: String, addressId: String)
     case retrieveAddresses(uid: String)
     case fetchConfirmationMessage(restaurantId: String, isPickup: Int)
+    case fetchHours(restaurantId: String)
 }
 
 extension CombinedAPICalls : TargetType {
@@ -209,6 +210,8 @@ extension CombinedAPICalls : TargetType {
         switch self {
         case .placeOrder(_,_,_,_,_,_,_,_,_,_,_,_):
             return "/placeOrder.php"
+        case .fetchHours(_):
+            return "/fetchHours.php"
         case .sendPhoneVerification(_):
             return "/sendPhoneVerification.php"
         case .checkPhoneVerificationCode(_,_):
@@ -232,7 +235,7 @@ extension CombinedAPICalls : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .placeOrder, .sendPhoneVerification, .checkPhoneVerificationCode, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
+        case .placeOrder, .fetchHours, .sendPhoneVerification, .checkPhoneVerificationCode, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
             return .post
         }
 
@@ -259,6 +262,8 @@ extension CombinedAPICalls : TargetType {
                                                    "address_id": addressId,
                                                    "instructions": instructions
                 ], encoding: JSONEncoding.default)
+        case .fetchHours(let restaurantId):
+            return .requestParameters(parameters: ["restaurantId": restaurantId], encoding: JSONEncoding.default)
         case .sendPhoneVerification(let phoneNumber):
             return .requestParameters(parameters: ["phoneNumber": phoneNumber], encoding: JSONEncoding.default)
         case .checkPhoneVerificationCode(let phoneNumber, let code):

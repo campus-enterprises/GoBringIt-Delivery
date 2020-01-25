@@ -101,7 +101,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     func setupRealm() {
         
 //        let realm = try! Realm() // Initialize Realm
-        
+        fetchHours(restaurantID: restaurant.id)
         fetchWaitTimeMessage(restaurantID: restaurant.id)
         fetchFeaturedDishes(restaurantID: restaurant.id)
         fetchMenuCategories(restaurantID: restaurant.id)

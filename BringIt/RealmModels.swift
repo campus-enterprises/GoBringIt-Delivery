@@ -81,6 +81,7 @@ class Restaurant: Object {
     @objc dynamic var deliveryOnly = 1
     @objc dynamic var address = ""
     @objc dynamic var deliveryType = 0 // 0 means delivers anywhere, 1 means west-only
+    @objc dynamic var isClosed = 0 // 0 if restaurant closed, overrides hours
     let promotions = List<Promotion>()
     let mostPopularDishes = List<MenuItem>()
 //    let menuCategories = List<MenuCategory>()
@@ -90,10 +91,14 @@ class Restaurant: Object {
     }
     
     func isOpen() -> Bool {
-        if (deliveryOnly == 1){
-            return restaurantHours.isRestaurantOpen()
+        if (isClosed == 1){
+            return false
         } else {
-            return restaurantHours.isRestaurantOpen() || pickupHours.isRestaurantOpen()
+            if (deliveryOnly == 1){
+                return restaurantHours.isRestaurantOpen()
+            } else {
+                return restaurantHours.isRestaurantOpen() || pickupHours.isRestaurantOpen()
+            }
         }
     }
 }

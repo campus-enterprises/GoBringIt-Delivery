@@ -204,6 +204,10 @@ extension RestaurantsHomeViewController {
                                 restaurant.deliveryType = Int(deliveryType) ?? 0 // default deliver everywhere
                             }
                             
+                            if let isClosed = retrievedRestaurantInfo["isClosed"] as? String{
+                                restaurant.isClosed = Int(isClosed) ?? 0 // default open
+                            }
+                            
                             // Check if there's a hardcoded delivery fee
                             if let deliveryFee = retrievedRestaurantInfo["deliveryFee"] as? String {
                                 restaurant.deliveryFee = Double(deliveryFee) ?? -1.00
@@ -768,6 +772,56 @@ extension RestaurantDetailViewController {
                     self.updateIndices()
                     
                     self.myTableView.reloadData()
+                    
+                } catch {
+                    // Miscellaneous network error
+                    print("Network error")
+                    
+                    //                    self.refreshControl.endRefreshing()
+                }
+            case .failure(_):
+                // Connection failed
+                
+                // TO-DO: MAKE THIS A MODAL POPUP???
+                print("Connection failed. Make sure you're connected to the internet.")
+                
+                //                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
+    func fetchHours(restaurantID: String) {
+        
+        let realm = try! Realm() // Initialize Realm
+        
+        print("fetchHours() was called.")
+        
+        // Setup Moya provider and send network request
+        let provider = MoyaProvider<CombinedAPICalls>()
+        provider.request(.fetchHours(restaurantId: restaurantID)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                do {
+                    
+                    print("Status code for fetchHours(): \(moyaResponse.statusCode)")
+                    try moyaResponse.filterSuccessfulStatusCodes()
+                    
+                    let response = try moyaResponse.mapJSON() as! [String: Any]
+                    
+                    print("Retrieved Hours: \(response)")
+                    
+                    if response["success"] as! Int == 1 {
+                        print("Updating hours")
+                        try! realm.write {
+                            self.restaurant.restaurantHours = response["restaurantHours"] as? String ?? ""
+                            self.restaurant.pickupHours = response["pickupHours"] as? String ?? ""
+                            if let isClosed = response["isClosed"] as? String{
+                                self.restaurant.isClosed = Int(isClosed) ?? 0 // default open
+                            }
+                        }
+                    }
+                    
+//                    self.myTableView.reloadData()
                     
                 } catch {
                     // Miscellaneous network error
