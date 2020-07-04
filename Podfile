@@ -27,6 +27,9 @@ target 'BringIt' do
   pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git' # for sending emails
   pod 'SkeletonView' # For skeleton loading
   pod 'Siren' # for forcing app updates
+  pod 'Firebase/Analytics' # add the Firebase pod for Google Analytics
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
 
   target 'BringItTests' do
     inherit! :search_paths

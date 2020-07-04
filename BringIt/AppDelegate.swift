@@ -12,6 +12,7 @@ import Stripe
 import SendGrid
 import RealmSwift
 import Siren
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         STPTheme.default().accentColor = Constants.green
         STPTheme.default().secondaryForegroundColor = UIColor.darkGray
         STPTheme.default().font = UIFont(name: "Avenir-Book", size: 17)!
+        
+        // Firebase/Google Analytics setup
+        FirebaseApp.configure()
         
         // Set default navigation bar attributes
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BrandonGrotesque-Medium", size: 17)!, NSAttributedString.Key.foregroundColor: Constants.darkGray] // font color

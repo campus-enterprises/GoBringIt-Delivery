@@ -75,6 +75,9 @@
 		99941AAD228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAC228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift */; };
 		99941AAF228FCB270002B5B6 /* CheckPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */; };
 		99BD1A2A229CA3C7000E6451 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */; };
+		E1F301ED24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
+		E1F301EE24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
+		E1F301EF24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +202,7 @@
 		99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB154EBA6110BBC9C1FC34F4 /* Pods-BringIt.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.release (production).xcconfig"; sourceTree = "<group>"; };
 		CF8A99CC43D4932F44039A8F /* Pods_BringItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E52D6CAD0CD19E8EDCE9A118 /* Pods-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
 		E5592B430BE5AB21639D7013 /* Pods-BringItUITests.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.release (test).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.release (test).xcconfig"; sourceTree = "<group>"; };
 		ED023D6B58C912A6D088303A /* Pods-BringItTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItTests.debug (production).xcconfig"; path = "Target Support Files/Pods-BringItTests/Pods-BringItTests.debug (production).xcconfig"; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				11021FFE1CE68A83003D82FB /* Assets.xcassets */,
 				118C0C1A1D6B71DA00035CC2 /* MyAPIClient2.swift */,
 				1144B76621A74AF3003BBD8F /* MyAPIClient1.swift */,
+				E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */,
 				110220031CE68A83003D82FB /* Info.plist */,
 			);
 			path = BringIt;
@@ -606,6 +611,7 @@
 				1198FA181EC5151400864200 /* Brandon_blk.otf in Resources */,
 				110220021CE68A83003D82FB /* LaunchScreen.storyboard in Resources */,
 				1198FA111EC5149F00864200 /* Brandon_med.otf in Resources */,
+				E1F301ED24B117EA00D822D9 /* GoogleService-Info.plist in Resources */,
 				1198FA121EC5149F00864200 /* Brandon_reg_it.otf in Resources */,
 				1180F35B20A5C9DA00596187 /* Brandon_bld_it.otf in Resources */,
 				11021FFF1CE68A83003D82FB /* Assets.xcassets in Resources */,
@@ -619,6 +625,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F301EE24B117EA00D822D9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +633,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F301EF24B117EA00D822D9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,8 +692,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BringIt/Pods-BringIt-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -693,12 +703,15 @@
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -706,6 +719,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -970,7 +984,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.0.7;
+				MARKETING_VERSION = 4.0.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "BringIt-Bridging-Header.h";
@@ -990,7 +1004,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.0.7;
+				MARKETING_VERSION = 4.0.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
@@ -1129,7 +1143,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.0.7;
+				MARKETING_VERSION = 4.0.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "BringIt-Bridging-Header.h";
@@ -1231,7 +1245,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.0.7;
+				MARKETING_VERSION = 4.0.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";

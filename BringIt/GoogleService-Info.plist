@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>104935881262-fksvlogs2jnuap2nd9ooh4grot6qbfh7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.104935881262-fksvlogs2jnuap2nd9ooh4grot6qbfh7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCg9DOBIKlCzMKfsDrcjPlz7iqIsm4NPj4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>104935881262</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alexgerrese.BringIt</string>
+	<key>PROJECT_ID</key>
+	<string>gobringitappanalytics</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gobringitappanalytics.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:104935881262:ios:e0b022c014cd1a9c5a3dbf</string>
+	<key>DATABASE_URL</key>
+	<string>https://gobringitappanalytics.firebaseio.com</string>
+</dict>
+</plist>
