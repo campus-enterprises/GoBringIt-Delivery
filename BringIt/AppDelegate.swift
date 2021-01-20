@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Stripe Configuration
         Stripe.setDefaultPublishableKey("pk_live_UGdTD7Uq8SdIYMhknwzoH3ER")
-        STPPaymentConfiguration.shared().publishableKey = "pk_live_UGdTD7Uq8SdIYMhknwzoH3ER"
+        STPPaymentConfiguration.shared.publishableKey = "pk_live_UGdTD7Uq8SdIYMhknwzoH3ER"
         STPTheme.default().accentColor = Constants.green
         STPTheme.default().secondaryForegroundColor = UIColor.darkGray
         STPTheme.default().font = UIFont(name: "Avenir-Book", size: 17)!

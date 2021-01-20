@@ -45,6 +45,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The app uses the camera to scan and add a credit card as a form of payment.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>The app uses this data to create a profile photo which will be shown only to the user to create a more personalized app experience.</string>
 	<key>UILaunchStoryboardName</key>

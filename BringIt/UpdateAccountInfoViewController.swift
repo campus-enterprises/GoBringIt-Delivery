@@ -65,6 +65,7 @@ class UpdateAccountInfoViewController: UIViewController, UITextFieldDelegate {
         emailAddressView.layer.cornerRadius = Constants.cornerRadius
         phoneNumberView.layer.cornerRadius = Constants.cornerRadius
         updateButton.layer.cornerRadius = Constants.cornerRadius
+        phoneNumber.isEnabled = true
         
         // Set up targets for text fields
         fullName.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -75,6 +76,7 @@ class UpdateAccountInfoViewController: UIViewController, UITextFieldDelegate {
         setCustomBackButton()
         
         // Setup auto Next and Done buttons for keyboard
+        
         returnKeyHandler = IQKeyboardReturnKeyHandler(controller: self)
         returnKeyHandler?.lastTextFieldReturnKeyType = UIReturnKeyType.done
     }
