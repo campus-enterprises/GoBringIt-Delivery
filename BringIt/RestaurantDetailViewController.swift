@@ -319,6 +319,13 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             cell.detailTextLabel?.text = formattedNumber
             
             return cell
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "contactRestaurantCell", for: indexPath)
+            
+            let formattedNumber = restaurant.phoneNumber.toPhoneNumber()
+            cell.textLabel?.text = formattedNumber
+            
+            return cell
         } else if indexPath.section == announcementIndex {
             let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath)
             

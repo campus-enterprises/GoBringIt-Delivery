@@ -70,7 +70,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if checkIfLoggedIn() {
             
-            sections.append(SettingsSection(title: "About You", cells: ["Account Info", "Addresses", "Payment Methods"]))
+            sections.append(SettingsSection(title: "About You", cells: ["Account Info", "Addresses", "Payment Methods", "Notifications"]))
             
             sections.append(SettingsSection(title: "About Us", cells: ["Campus Enterprises", "Contact Us"]))
             
@@ -154,7 +154,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
         
         cell.textLabel?.text = sections[indexPath.section].cells[indexPath.row]
-        
         return cell
     }
     
@@ -195,6 +194,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let section = sections[indexPath.section]
         let cellName = section.cells[indexPath.row]
+        print(cellName)
         
         if section.title == "About You" {
             if cellName == "Account Info" {
@@ -203,6 +203,8 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 performSegue(withIdentifier: "toAddressesFromSettings", sender: self)
             } else if cellName == "Payment Methods" {
                 performSegue(withIdentifier: "toPaymentMethodsFromSettings", sender: self)
+            } else if cellName == "Notifications" {
+                performSegue(withIdentifier: "toNotificationsFromSettings", sender: self)
             }
         } else if section.title == "About Us" {
             if cellName == "Campus Enterprises" {
