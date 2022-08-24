@@ -153,8 +153,9 @@ class NewCreditCardVC: UIViewController {
                         if success as! Int == 1 {
                             
                             print("Credit card is verified with Stripe")
-                            self.navigationController?.popViewController(animated: true)
-                            
+                            self.performSegue(withIdentifier: "unwindtoHome", sender: self)
+                    
+                    
                         } else {
                             
                             self.showError(button: self.saveButton, activityIndicator: self.myActivityIndicator, error: .incorrectCreditCard, defaultButtonText: "Save Credit Card")

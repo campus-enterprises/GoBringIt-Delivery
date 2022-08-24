@@ -75,6 +75,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func retrieveCreditCards() {
+        print("Entered retrieve credit cards")
         let realm = try! Realm() // Initialize Realm
         
         // Setup Moya provider and send network request
@@ -89,7 +90,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     
                     let response = try moyaResponse.mapJSON() as! [String: Any]
                     print(response)
-                    
+                
                     if let success = response["success"] {
                         
                         if success as! Int == 1 {

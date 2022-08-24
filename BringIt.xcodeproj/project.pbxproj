@@ -68,6 +68,7 @@
 		11C9EA901ECE0D81004A4C1E /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C9EA8F1ECE0D81004A4C1E /* RestaurantDetailViewController.swift */; };
 		11DBC59C1EE4C6FA0000A600 /* BecomeADriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DBC59B1EE4C6FA0000A600 /* BecomeADriverVC.swift */; };
 		11ED77311EE1BC360086F4B1 /* PastOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED77301EE1BC360086F4B1 /* PastOrderDetailViewController.swift */; };
+		50CA7E8B28B6038700F76807 /* AddCreditCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA7E8A28B6038700F76807 /* AddCreditCardVC.swift */; };
 		58A878C1B413C2FF3D259F12 /* Pods_BringIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC06ACE728B5680112A7529 /* Pods_BringIt.framework */; };
 		7826E54822C8482000A8B218 /* NewDukeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7826E54722C8482000A8B218 /* NewDukeCardVC.swift */; };
 		783F494622D1566200408EBF /* EnterPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F494522D1566200408EBF /* EnterPinPopUpVC.swift */; };
@@ -216,6 +217,7 @@
 		42D163E2404522204C5767A7 /* Pods-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
 		4B8909EC2866BC684F0AEC19 /* Pods-BringIt.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.debug (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.debug (production).xcconfig"; sourceTree = "<group>"; };
 		4BF6FE00CC0DC2BDC0E3F13C /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CA7E8A28B6038700F76807 /* AddCreditCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardVC.swift; sourceTree = "<group>"; };
 		7826E54722C8482000A8B218 /* NewDukeCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDukeCardVC.swift; sourceTree = "<group>"; };
 		783F494522D1566200408EBF /* EnterPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinPopUpVC.swift; sourceTree = "<group>"; };
 		99941A99228E206A0002B5B6 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				11C9EA841ECC9415004A4C1E /* RestaurantsHomeViewController.swift */,
+				50CA7E8A28B6038700F76807 /* AddCreditCardVC.swift */,
 				1183F0091EF8F8A400FFCD02 /* Cells */,
 			);
 			name = "Restaurants Home";
@@ -919,6 +922,7 @@
 				11C9EA901ECE0D81004A4C1E /* RestaurantDetailViewController.swift in Sources */,
 				112D6B191ECF1F1F00396BA5 /* SpecialInstructionsTableViewCell.swift in Sources */,
 				99941AA3228E24AD0002B5B6 /* Environment.swift in Sources */,
+				50CA7E8B28B6038700F76807 /* AddCreditCardVC.swift in Sources */,
 				112D6B151ECF1B9A00396BA5 /* AddToCartVC.swift in Sources */,
 				11158DA81ECB1B4700A88338 /* Constants.swift in Sources */,
 				11DBC59C1EE4C6FA0000A600 /* BecomeADriverVC.swift in Sources */,
@@ -1043,7 +1047,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = "$(inherited)";
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1115,7 +1119,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = "$(inherited)";
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1187,7 +1191,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = "$(inherited)";
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1252,7 +1256,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = "$(inherited)";
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1408,7 +1412,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B8909EC2866BC684F0AEC19 /* Pods-BringIt.debug (production).xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1430,7 +1434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB154EBA6110BBC9C1FC34F4 /* Pods-BringIt.release (production).xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1482,6 +1486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2373FA1DEA3F5C83FA99330E /* Pods-BringIt-BringItUITests.debug (production).xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alexgerrese.BringItUITests;
@@ -1496,6 +1501,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DFB24CE2045CC909F72F450E /* Pods-BringIt-BringItUITests.release (production).xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alexgerrese.BringItUITests;
@@ -1570,7 +1576,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21273CB025F7AE61EF4E5674 /* Pods-BringIt.debug (test).xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1606,6 +1612,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8B606D3EF48852AB9427BD7 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alexgerrese.BringItUITests;
@@ -1674,7 +1681,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F1775073DAD35EAA46C88567 /* Pods-BringIt.release (test).xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1712,6 +1719,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BCA16F012081EBACC1E6FEDB /* Pods-BringIt-BringItUITests.release (test).xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alexgerrese.BringItUITests;

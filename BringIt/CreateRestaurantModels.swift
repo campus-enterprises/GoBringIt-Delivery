@@ -19,58 +19,58 @@ extension RestaurantsHomeViewController {
         print("getBackendVersionNumber() was called.")
         
         var versionNumber = -1
-        
+
         // Setup Moya provider and send network request
         let provider = MoyaProvider<APICalls>()
         provider.request(.fetchVersionNumber) { result in
             switch result {
             case let .success(moyaResponse):
                 do {
-                    
+
                     print("Status code for getBackendVersionNumber(): \(moyaResponse.statusCode)")
                     try moyaResponse.filterSuccessfulStatusCodes()
-                    
+
                     let response = try moyaResponse.mapJSON() as! [String: Any]
-                    
+
                     print("Retrieved Response: \(response)")
-                    
+
                     versionNumber = Int(response["version_number"] as! String)!
-                    
+
                     // Set SendGrid API Key
                     let key = response["SendGridAPIKey"] as! String
                     self.defaults.set(key, forKey: "SendGridAPIKey")
                     Session.shared.authentication = Authentication.apiKey(key)
-                    
+
                     // Set alert message
                     if response["alertMessage"] as! String != "" {
                         self.alertMessage = response["alertMessage"] as! String
-                    
+
                         if response["alertMessageColor"] as! String != "" {
                             self.alertMessageColor = UIColor(hexString: (response["alertMessageColor"] as! String))
                         }
-                        
+
                         if response["alertMessageLink"] as! String != "" {
                             self.alertMessageLink = response["alertMessageLink"] as! String
                         }
                     }
-                    
+
                     print("Retrieved Version Number: \(versionNumber)")
                     completion(versionNumber)
-                    
+
                 } catch {
                     // Miscellaneous network error
-                    
+
                     // TO-DO: MAKE THIS A MODAL POPUP???
                     print("Network error")
-                    
+
                     self.refreshControl.endRefreshing()
                 }
             case .failure(_):
                 // Connection failed
-                
+
                 // TO-DO: MAKE THIS A MODAL POPUP???
                 print("Connection failed. Make sure you're connected to the internet.")
-                
+
                 self.refreshControl.endRefreshing()
             }
         }

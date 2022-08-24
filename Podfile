@@ -1,3 +1,5 @@
+# platform :ios, '14.4'
+
 target 'BringIt' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
