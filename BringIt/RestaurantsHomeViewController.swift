@@ -80,7 +80,7 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
         
         // Setup TableView
         setupTableView()
-        checkForCreditCard()
+        //checkForCreditCard()
         
     }
 
@@ -110,7 +110,8 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
 //        self.present(creditcardpopup, animated: true)
         // Download restaurant data if necessary
         checkForUpdates()
-        checkForCreditCard()
+        //checkForCreditCard()
+        
     }
     
     func setupTableView() {
@@ -130,7 +131,7 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
-        checkForCreditCard()
+        //checkForCreditCard()
         checkForUpdates()
     }
     
@@ -218,57 +219,60 @@ class RestaurantsHomeViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-    @IBAction func unwindfromCreditCard( _ seg: UIStoryboardSegue) {
-    }
     
-    var user = User()
+//    @IBAction func unwindfromCreditCard( _ seg: UIStoryboardSegue) {
+//    }
+//    
+//    var user = User()
+//
+    //Taken care of in check out VC
     
-    func checkForCreditCard() {
-        let realm = try! Realm()
-        let predicate = NSPredicate(format: "isCurrent = %@", NSNumber(booleanLiteral: true))
-        user = realm.objects(User.self).filter(predicate).first!
-        print("Credit Card Method Entered")
-        print("Printing Existing Payment Methods")
-        print(user.paymentMethods)
-        // Setup Moya provider and send network request
-        let provider = MoyaProvider<APICalls>()
-        print("did not reach there")
-        provider.request(.stripeRetrieveCards(userID: user.id)) { result in
-            switch result {
-            case let .success(moyaResponse):
-                do {
-                    print("reached here")
-                    print("Status code: \(moyaResponse.statusCode)")
-                    try moyaResponse.filterSuccessfulStatusCodes()
-                    
-                    let response = try moyaResponse.mapJSON() as! [String: Any]
-                    print(response)
-                    
-                    if let success = response["success"] {
-                       
-                        let creditCards = response["cards"] as! [AnyObject]
-                        if creditCards.isEmpty {
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let creditcardpopup = storyboard.instantiateViewController(withIdentifier: "creditCardCheck")
-                            creditcardpopup.modalPresentationStyle = .fullScreen
-                            self.present(creditcardpopup, animated: true)
-                        }
-                        
-                    }
-                    else{
-                        print("Credit Card Info Not empty")
-                    }
-                    
-                } catch {
-                    // Miscellaneous network error
-                    print("Network Error")
-                }
-            case .failure(_):
-                // Connection failed
-                print("Connection failed")
-            }
-        }
-    }
+//    func checkForCreditCard() {
+//        let realm = try! Realm()
+//        let predicate = NSPredicate(format: "isCurrent = %@", NSNumber(booleanLiteral: true))
+//        user = realm.objects(User.self).filter(predicate).first!
+//        print("Credit Card Method Entered")
+//        print("Printing Existing Payment Methods")
+//        print(user.paymentMethods)
+//        // Setup Moya provider and send network request
+//        let provider = MoyaProvider<APICalls>()
+//        print("did not reach there")
+//        provider.request(.stripeRetrieveCards(userID: user.id)) { result in
+//            switch result {
+//            case let .success(moyaResponse):
+//                do {
+//                    print("reached here")
+//                    print("Status code: \(moyaResponse.statusCode)")
+//                    try moyaResponse.filterSuccessfulStatusCodes()
+//                    
+//                    let response = try moyaResponse.mapJSON() as! [String: Any]
+//                    print(response)
+//                    
+//                    if let success = response["success"] {
+//                       
+//                        let creditCards = response["cards"] as! [AnyObject]
+//                        if creditCards.isEmpty {
+//                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                            let creditcardpopup = storyboard.instantiateViewController(withIdentifier: "creditCardCheck")
+//                            creditcardpopup.modalPresentationStyle = .fullScreen
+//                            self.present(creditcardpopup, animated: true)
+//                        }
+//                        
+//                    }
+//                    else{
+//                        print("Credit Card Info Not empty")
+//                    }
+//                    
+//                } catch {
+//                    // Miscellaneous network error
+//                    print("Network Error")
+//                }
+//            case .failure(_):
+//                // Connection failed
+//                print("Connection failed")
+//            }
+//        }
+//    }
     
     func checkForUpdates() {
         
