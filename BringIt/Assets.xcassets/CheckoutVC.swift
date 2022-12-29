@@ -108,7 +108,6 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         // TO-DO: Check if coming from SignInVC
         checkIfLoggedIn()
-        checkIfNetIDVerified()
         setupUI()
         calculateDeliveryFee()
         totalAmount = calculateTotal()
@@ -170,6 +169,10 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             print("Not logged in, going to SignInVC")
             performSegue(withIdentifier: "toSignIn", sender: self)
         } else {
+            print("Checking for NetID...")
+            checkIfNetIDVerified()
+            print("Checking for credit card...")
+            checkForCreditCard(doDismiss: false)
             
             print("Logged in, querying user")
             // Check if user already exists in Realm
@@ -213,7 +216,6 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         print("Setting up UI")
         
         setCustomBackButton()
-        checkForCreditCard()
         
         // Check if pickup option is available
         if restaurant.deliveryOnly == 1 {
@@ -648,35 +650,53 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction func unwindfromCreditCard( _ seg: UIStoryboardSegue) {
     }
     
-    func checkForCreditCard() {
+    @IBAction func unwindFromNetID( _ seg: UIStoryboardSegue) {
+        print("Doing a credit check")
+        checkForCreditCard(doDismiss: true)
+    }
+    
+    func forceCreditCard(doDismiss: Bool) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let creditcardpopup = storyboard.instantiateViewController(withIdentifier: "creditCardCheck")
+        creditcardpopup.modalPresentationStyle = .fullScreen
+        print("presenting the popup")
+        if (doDismiss) {
+            print("doing a dismiss")
+            self.dismiss(animated: false, completion: nil)
+        } else {
+            print("not doing a dismiss")
+        }
+        self.present(creditcardpopup, animated: true)
+    }
+    
+    func checkForCreditCard(doDismiss: Bool) {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "isCurrent = %@", NSNumber(booleanLiteral: true))
         user = realm.objects(User.self).filter(predicate).first!
         print("Credit Card Method Entered")
-        print("Printing Existing Payment Methods")
-        print(user.paymentMethods)
         // Setup Moya provider and send network request
         let provider = MoyaProvider<APICalls>()
-        print("did not reach there")
         provider.request(.stripeRetrieveCards(userID: user.id)) { result in
             switch result {
             case let .success(moyaResponse):
                 do {
                     print("reached here")
                     print("Status code: \(moyaResponse.statusCode)")
-                    try moyaResponse.filterSuccessfulStatusCodes()
-                    
+                    print(moyaResponse.data)
+                    print("letting it happen")
                     let response = try moyaResponse.mapJSON() as! [String: Any]
+                    print("printing response...")
                     print(response)
-                    
+                    print("...printed response")
                     if let success = response["success"] {
-                       
+                        
+                        print("Was a success")
                         let creditCards = response["cards"] as! [AnyObject]
                         if creditCards.isEmpty {
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let creditcardpopup = storyboard.instantiateViewController(withIdentifier: "creditCardCheck")
-                            creditcardpopup.modalPresentationStyle = .fullScreen
-                            self.present(creditcardpopup, animated: true)
+                            print("No cards, running card force")
+                            self.forceCreditCard(doDismiss: doDismiss)
+                        } else {
+                            print("There are cards")
                         }
                         
                     }

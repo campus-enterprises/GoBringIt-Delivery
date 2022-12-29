@@ -43,6 +43,8 @@ extension UIViewController {
         if let a = activityIndicator {
             a.isHidden = true
         }
+        
+        button.setTitleColor(UIColor.white, for: .normal)
         button.layer.backgroundColor = Constants.red.cgColor
         button.isEnabled = false
         
@@ -114,7 +116,6 @@ extension UIViewController {
     }
     
     func hideError(button: UIButton, defaultButtonText: String) {
-        
         button.layer.backgroundColor = Constants.green.cgColor
         if defaultButtonText != nil {
             button.setTitle(defaultButtonText, for: .normal)
@@ -124,7 +125,7 @@ extension UIViewController {
     }
     
     func hideErrorWhite(button: UIButton, defaultButtonText: String) {
-        
+        button.setTitleColor(Constants.green, for: .normal)
         button.layer.backgroundColor = UIColor.white.cgColor
         if defaultButtonText != nil {
             button.setTitle(defaultButtonText, for: .normal)

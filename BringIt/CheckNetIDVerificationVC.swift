@@ -16,8 +16,8 @@ class CheckNetIDVerificationVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     
     // MARK: - Variables
     
@@ -68,6 +68,22 @@ class CheckNetIDVerificationVC: UIViewController, UITextFieldDelegate {
         returnKeyHandler?.lastTextFieldReturnKeyType = UIReturnKeyType.done
     }
     
+    @IBAction func signOutUser(_ sender: UIButton) {
+        
+        let realm = try! Realm() // Initialize Realm
+        
+        // Update UserDefaults' "loggedIn" property to false
+        self.defaults.set(false, forKey: "loggedIn")
+        self.defaults.set(false, forKey: "netIdVerified")
+        
+        // Set current Realm user's active property to false
+        try! realm.write {
+            user.isCurrent = false
+        }
+        
+        self.performSegue(withIdentifier: "exitSegue", sender: self)
+    }
+    
     @IBAction func verifyButtonTapped(_ sender: UIButton) {
         print("Button tapped")
         // Check that all fields are filled and correctly formatted, else return
@@ -93,7 +109,7 @@ class CheckNetIDVerificationVC: UIViewController, UITextFieldDelegate {
                         // Successfully received server response
                         print("Successfully received server response")
                         self.defaults.set(true, forKey: "netIdVerified")
-                        self.performSegue(withIdentifier: "exitSegue", sender: self)
+                        self.performSegue(withIdentifier: "unwindNetIdSegue", sender: self)
                     } else {
                         // User already exists
                         self.showError(button: self.continueButton, error: .invalidNetIDVerification)
@@ -118,9 +134,8 @@ class CheckNetIDVerificationVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is RestaurantsHomeViewController{
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
     
 }

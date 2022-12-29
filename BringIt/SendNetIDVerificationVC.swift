@@ -93,7 +93,7 @@ class SendNetIDVerificationVC: UIViewController, UITextFieldDelegate {
         }
         
         // Animate activity indicator
-        startAnimating(activityIndicator: myActivityIndicator, button: continueButton)
+        // startAnimating(activityIndicator: myActivityIndicator, button: continueButton)
         
         // Setup Moya provider and send network request
         let provider = MoyaProvider<CombinedAPICalls>()
