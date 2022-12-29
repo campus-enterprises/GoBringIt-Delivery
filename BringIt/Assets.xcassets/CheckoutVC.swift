@@ -108,6 +108,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         // TO-DO: Check if coming from SignInVC
         checkIfLoggedIn()
+        checkIfNetIDVerified()
         setupUI()
         calculateDeliveryFee()
         totalAmount = calculateTotal()
@@ -188,6 +189,21 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 performSegue(withIdentifier: "toSignIn", sender: self)
             }
             
+        }
+    }
+    
+    func checkIfNetIDVerified() {
+        
+        let realm = try! Realm() // Initialize Realm
+        print("Checking if NetID verified")
+        print(defaults.bool(forKey: "netIdVerified"))
+        
+        // If not logged in, go to SignInVC
+        // If not logged in, go to SignInVC
+        let verified = defaults.bool(forKey: "netIdVerified")
+        if !verified {
+            print("Not verified, going to NetID VC")
+            performSegue(withIdentifier: "toNetID", sender: self)
         }
     }
     

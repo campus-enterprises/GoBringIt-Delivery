@@ -6,14 +6,14 @@
 //  Copyright © 2017 Campus Enterprises. All rights reserved.
 //
 
-// VERY IMPORTANT IDEA: Have a counter in the backend for updateVersion, and increment it manually when changes are made. Have the app check that value against its internal version, and only call the backend when that version is inconsistent, then update it to be the same.
+// VERY IMPORTANT IDEA: Have a counter in the backend for updateVersion, and increment it manually when changes are made. Have the app check that value against its internal version, and only call the backend when that version inconsistent, then update it to be the same.
 
 import Foundation
 import Moya
 
 enum APICalls {
     case signInUser(email: String, password: String)
-    case signUpUser(fullName: String, email: String, password: String, phoneNumber: String, gradYear: String)
+    case signUpUser(fullName: String, email: String, password: String, phoneNumber: String)
     case fetchPromotions
     case fetchRestaurantData
     case fetchRestaurantsInfo
@@ -47,7 +47,7 @@ extension APICalls : TargetType {
         switch self {
         case .signInUser(_,_):
             return "/signInUser.php"
-        case .signUpUser(_,_,_,_,_):
+        case .signUpUser(_,_,_,_):
             return "/signUpUser.php"
         case .fetchPromotions:
             return "/fetchPromotions.php"
@@ -122,12 +122,11 @@ extension APICalls : TargetType {
         case .signInUser(let email, let password):
             return .requestParameters(parameters: ["email": email,
             "password": password], encoding: JSONEncoding.default)
-        case .signUpUser(let fullName, let email, let password, let phoneNumber, let gradYear):
+        case .signUpUser(let fullName, let email, let password, let phoneNumber):
             return .requestParameters(parameters: ["name": fullName,
                     "email": email,
                     "phone": phoneNumber,
-                    "password": password,
-                    "grad_year": gradYear], encoding: JSONEncoding.default) // Delete these from backend
+                    "password": password], encoding: JSONEncoding.default) // Delete these from backend
         case .updateCurrentAddress(let uid, let streetAddress, let roomNumber):
             return .requestParameters(parameters: ["account_id": uid,
                     "street": streetAddress,
@@ -190,7 +189,9 @@ extension APICalls : TargetType {
 enum CombinedAPICalls {
     case placeOrder(uid: String, restaurantID: String, paymentValue: String, isPickup: String, amount: String, deliveryFee: String, creditUsed: String, paymentType: String, name: String, rememberPayment: String, addressId: String, instructions: String)
     case sendPhoneVerification(phoneNumber: String)
+    case sendNetIDVerification(netid: String, uid: String)
     case checkPhoneVerificationCode(phoneNumber: String, code: String)
+    case checkNetIDVerificationCode(uid: String)
     case clearCart(uid: String)
     case retrieveDukeCards(uid: String)
     case deleteDukeCard(uid: String, cardId: String)
@@ -214,8 +215,12 @@ extension CombinedAPICalls : TargetType {
             return "/fetchHours.php"
         case .sendPhoneVerification(_):
             return "/sendPhoneVerification.php"
+        case .sendNetIDVerification(_,_):
+            return "/confirmNetid.php"
         case .checkPhoneVerificationCode(_,_):
             return "/checkPhoneVerification.php"
+        case .checkNetIDVerificationCode(_):
+            return "/checkNetidVerified.php"
         case .clearCart(_):
             return "/clearCart.php"
         case .retrieveDukeCards(_):
@@ -235,7 +240,7 @@ extension CombinedAPICalls : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .placeOrder, .fetchHours, .sendPhoneVerification, .checkPhoneVerificationCode, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
+        case .placeOrder, .fetchHours, .sendPhoneVerification, .checkPhoneVerificationCode, .checkNetIDVerificationCode, .sendNetIDVerification, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
             return .post
         }
 
@@ -269,6 +274,10 @@ extension CombinedAPICalls : TargetType {
         case .checkPhoneVerificationCode(let phoneNumber, let code):
             return .requestParameters(parameters: ["phoneNumber": phoneNumber,
                                                 "verificationCode": code], encoding: JSONEncoding.default)
+        case .sendNetIDVerification(let netid, let uid):
+            return .requestParameters(parameters: ["netid": netid, "uid": uid], encoding: JSONEncoding.default)
+        case .checkNetIDVerificationCode(let uid):
+            return .requestParameters(parameters: ["uid": uid], encoding: JSONEncoding.default)
         case .clearCart(let uid):
             return .requestParameters(parameters: ["uid": uid], encoding: JSONEncoding.default)
         case .retrieveDukeCards(let uid):

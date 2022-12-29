@@ -132,6 +132,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // Update UserDefaults' "loggedIn" property to false
         self.defaults.set(false, forKey: "loggedIn")
+        self.defaults.set(false, forKey: "netIdVerified")
         
         // Set current Realm user's active property to false
         try! realm.write {

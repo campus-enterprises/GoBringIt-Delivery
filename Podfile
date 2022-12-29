@@ -13,7 +13,7 @@ target 'BringIt' do
   #pod 'IDZSwiftCommonCrypto'
   #pod 'CVCalendar'
   #pod 'GMStepper'
-  pod 'Stripe'
+  pod 'Stripe', '>= 22.8.1'
 #  pod 'CryptoSwift'
   
   # New Pods
@@ -42,4 +42,12 @@ target 'OneSignalNotificationServiceExtension' do
   pod 'OneSignal', '>= 3.0.0', '< 4.0'
   # Pods for OneSignalNotificationServiceExtension
 
+end
+
+post_install do |pi|
+    pi.pods_project.targets.each do |t|
+      t.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.4'
+      end
+    end
 end

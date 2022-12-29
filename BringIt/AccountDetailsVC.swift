@@ -29,9 +29,6 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneNumberView: UIView!
     @IBOutlet weak var phoneNumber: UITextField!
     
-    @IBOutlet weak var graduationYearView: UIView!
-    @IBOutlet weak var graduationYear: UITextField!
-    
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     
@@ -66,7 +63,6 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
         emailAddressView.layer.cornerRadius = Constants.cornerRadius
         passwordView.layer.cornerRadius = Constants.cornerRadius
         phoneNumberView.layer.cornerRadius = Constants.cornerRadius
-        graduationYearView.layer.cornerRadius = Constants.cornerRadius
         continueButton.layer.cornerRadius = Constants.cornerRadius
         
         self.phoneNumber.text = phoneNum
@@ -76,7 +72,6 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
         emailAddress.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         password.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         phoneNumber.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        graduationYear.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         myActivityIndicator.isHidden = true
         
@@ -98,9 +93,10 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
         // Animate activity indicator
         startAnimating(activityIndicator: myActivityIndicator, button: continueButton)
         
+        print("Requesting signup")
         // Setup Moya provider and send network request
         let provider = MoyaProvider<APICalls>()
-        provider.request(.signUpUser(fullName: fullName.text!, email: emailAddress.text!, password: password.text!, phoneNumber: phoneNumber.text!, gradYear: graduationYear.text!)) { result in
+        provider.request(.signUpUser(fullName: fullName.text!, email: emailAddress.text!, password: password.text!, phoneNumber: phoneNumber.text!)) { result in
             switch result {
             case let .success(moyaResponse):
                 do {
@@ -143,6 +139,7 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
                     self.showError(button: self.continueButton, activityIndicator: self.myActivityIndicator, error: .networkError, defaultButtonText: self.defaultButtonText)
                 }
             case .failure(_):
+                print("Failure")
                 // Connection failed
                 self.showError(button: self.continueButton, activityIndicator: self.myActivityIndicator, error: .connectionFailed, defaultButtonText: self.defaultButtonText)
             }
@@ -179,7 +176,7 @@ class AccountDetailsVC: UIViewController, UITextFieldDelegate {
         } else if (emailAddress.text?.isBlank)! {
             showError(button: continueButton, error: .fieldEmpty)
             return false
-        } else if !(emailAddress.text?.isEmail)! {
+        } else if (emailAddress.text?.range(of: "^[A-Za-z]+[0-9]*$", options: .regularExpression, range: nil, locale: nil) == nil) {
             showError(button: continueButton, error: .invalidEmail)
             return false
         } else if (password.text?.isBlank)! {

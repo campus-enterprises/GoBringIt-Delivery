@@ -115,14 +115,15 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                     print("Retrieved User: \(retrievedUser)")
                     
                     // Check response from backend
-                    let successResponse = retrievedUser["success"] as? Int
-                    if successResponse == 1 {
+                    let successResponse = retrievedUser["success"] as! Int
+                    if successResponse >= 1 {
                         // Successfully logged in
                         
                         print("Successfully logged in")
                         
                         // Set up UserDefaults
                         self.defaults.set(true, forKey: "loggedIn")
+                        self.defaults.set(successResponse == 1, forKey: "netIdVerified")
                         
                         // Check if user already exists in Realm
                         let predicate = NSPredicate(format: "id = %@", (retrievedUser["id"] as? String)!)
@@ -264,7 +265,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         if (emailAddress.text?.isBlank)! {
             showError(button: signInButton, activityIndicator: myActivityIndicator, error: .fieldEmpty)
             return false
-        } else if !(emailAddress.text?.isEmail)! {
+        } else if (!emailAddress.text!.isEmail && emailAddress.text?.range(of: "^[A-Za-z]+[0-9]*$", options: .regularExpression, range: nil, locale: nil) == nil) {
             showError(button: signInButton, activityIndicator: myActivityIndicator, error: .invalidEmail)
             return false
         } else if (password.text?.isBlank)! {

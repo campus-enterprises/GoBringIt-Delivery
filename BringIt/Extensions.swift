@@ -34,6 +34,8 @@ extension UIViewController {
         case invalidInput
         case incorrectCreditCard
         case invalidVerificationCode
+        case invalidNetIDVerification
+        case netIdInUse
     }
     
     func showError(button: UIButton, activityIndicator: UIActivityIndicatorView?, error: Error, defaultButtonText: String?) {
@@ -52,7 +54,10 @@ extension UIViewController {
             button.setTitle("Network Error. Please try again.", for: .normal)
             hideErrorAfterDelay(button: button, defaultButtonText: defaultButtonText!, delay: Constants.delay)
         case .invalidEmail:
-            button.setTitle("Please enter a valid email.", for: .normal)
+            button.setTitle("Please enter a valid Duke NetID.", for: .normal)
+            button.isEnabled = false
+        case .netIdInUse:
+            button.setTitle("NetID is already in use on a different account.", for: .normal)
             button.isEnabled = false
         case .invalidPassword:
             button.setTitle("Incorrect password. Please try again.", for: .normal)
@@ -84,6 +89,9 @@ extension UIViewController {
         case .invalidVerificationCode:
             button.setTitle("Invalid verification code.", for: .normal)
             button.isEnabled = false
+        case .invalidNetIDVerification:
+            button.setTitle("Link not yet clicked.", for: .normal)
+            button.isEnabled = false
         }
     }
     
@@ -108,6 +116,16 @@ extension UIViewController {
     func hideError(button: UIButton, defaultButtonText: String) {
         
         button.layer.backgroundColor = Constants.green.cgColor
+        if defaultButtonText != nil {
+            button.setTitle(defaultButtonText, for: .normal)
+        }
+        button.isEnabled = true
+        
+    }
+    
+    func hideErrorWhite(button: UIButton, defaultButtonText: String) {
+        
+        button.layer.backgroundColor = UIColor.white.cgColor
         if defaultButtonText != nil {
             button.setTitle(defaultButtonText, for: .normal)
         }

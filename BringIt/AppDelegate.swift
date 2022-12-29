@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        sirenAlert()
+        // COMMENT OUT TO PREVENT UPDATE NOTIFICATION ON SIMULATOR
+        //sirenAlert()
         
         // Set up keyboard manager
         IQKeyboardManager.shared.enable = true

@@ -68,17 +68,20 @@
 		11C9EA901ECE0D81004A4C1E /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C9EA8F1ECE0D81004A4C1E /* RestaurantDetailViewController.swift */; };
 		11DBC59C1EE4C6FA0000A600 /* BecomeADriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DBC59B1EE4C6FA0000A600 /* BecomeADriverVC.swift */; };
 		11ED77311EE1BC360086F4B1 /* PastOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED77301EE1BC360086F4B1 /* PastOrderDetailViewController.swift */; };
+		2B07CB9E1695A1FEDC2D3628 /* Pods_BringIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE2B48D0C7A5A45FC5145CB /* Pods_BringIt.framework */; };
+		3F814D619FC19302D2710946 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FB8717EEC2951D64DC9A0B /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		50CA7E8B28B6038700F76807 /* AddCreditCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA7E8A28B6038700F76807 /* AddCreditCardVC.swift */; };
-		58A878C1B413C2FF3D259F12 /* Pods_BringIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC06ACE728B5680112A7529 /* Pods_BringIt.framework */; };
 		7826E54822C8482000A8B218 /* NewDukeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7826E54722C8482000A8B218 /* NewDukeCardVC.swift */; };
 		783F494622D1566200408EBF /* EnterPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F494522D1566200408EBF /* EnterPinPopUpVC.swift */; };
-		8BE8D8246E0355BAA5BF10F9 /* Pods_BringIt_BringItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01A3E4A1A22D55744A7CE71 /* Pods_BringIt_BringItUITests.framework */; };
+		7F308F14D8B0318225AC3AC5 /* Pods_BringIt_BringItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F80A9718352D06A5A4F40 /* Pods_BringIt_BringItUITests.framework */; };
 		99941AA3228E24AD0002B5B6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA2228E24AD0002B5B6 /* Environment.swift */; };
 		99941AAB228F54520002B5B6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAA228F54520002B5B6 /* Helper.swift */; };
 		99941AAD228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAC228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift */; };
 		99941AAF228FCB270002B5B6 /* CheckPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */; };
 		99BD1A2A229CA3C7000E6451 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */; };
-		B1A6AD63CB026DABFAF77E43 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF6FE00CC0DC2BDC0E3F13C /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		B295CCCA295940AF006D58E5 /* CheckNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */; };
+		B295CCCC2959534B006D58E5 /* SendNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */; };
+		B295CCCE29595D50006D58E5 /* CheckoutNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */; };
 		E1F301ED24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
 		E1F301EE24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
 		E1F301EF24B117EA00D822D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */; };
@@ -133,12 +136,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0782A50E3E0E1282C6C1E375 /* Pods-BringItUITests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.debug (production).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.debug (production).xcconfig"; sourceTree = "<group>"; };
+		02FB8717EEC2951D64DC9A0B /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AD428325F58355005B2B9D /* BringIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BringIt.entitlements; sourceTree = "<group>"; };
 		07AD428825F58EF6005B2B9D /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AD428A25F58EF6005B2B9D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		07AD428C25F58EF6005B2B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07BB34E69833FC0C9BC91502 /* Pods-BringIt.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.debug (test).xcconfig"; sourceTree = "<group>"; };
 		07FD96452631F82A00B6E8E8 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		096191E322478CB7E2197B84 /* Pods-BringIt.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.release (production).xcconfig"; sourceTree = "<group>"; };
+		10C2F2600BDF770F2611DBE0 /* Pods-BringIt.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.release (test).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.release (test).xcconfig"; sourceTree = "<group>"; };
 		11021FF21CE68A83003D82FB /* BringIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11021FF51CE68A83003D82FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11021FFC1CE68A83003D82FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,13 +217,12 @@
 		11D4D0EB1D5D01B300E19D9C /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = "../../../Library/Developer/Xcode/DerivedData/BringIt-eikmfiylvevalwhisvffejbvrpvv/Build/Products/Debug-iphonesimulator/Stripe/Stripe.framework"; sourceTree = "<group>"; };
 		11DBC59B1EE4C6FA0000A600 /* BecomeADriverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BecomeADriverVC.swift; sourceTree = "<group>"; };
 		11ED77301EE1BC360086F4B1 /* PastOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrderDetailViewController.swift; sourceTree = "<group>"; };
-		21273CB025F7AE61EF4E5674 /* Pods-BringIt.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.debug (test).xcconfig"; sourceTree = "<group>"; };
-		2373FA1DEA3F5C83FA99330E /* Pods-BringIt-BringItUITests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (production).xcconfig"; sourceTree = "<group>"; };
-		3B8759FD47FF1C6A3BE473D1 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release (production).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release (production).xcconfig"; sourceTree = "<group>"; };
-		42D163E2404522204C5767A7 /* Pods-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
-		4B8909EC2866BC684F0AEC19 /* Pods-BringIt.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.debug (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.debug (production).xcconfig"; sourceTree = "<group>"; };
-		4BF6FE00CC0DC2BDC0E3F13C /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE2B48D0C7A5A45FC5145CB /* Pods_BringIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32F60E7A1D37DBA195C748CA /* Pods-BringIt.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.debug (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.debug (production).xcconfig"; sourceTree = "<group>"; };
+		470F78191F26E9322C963AFF /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig"; sourceTree = "<group>"; };
+		4C873371C21696812F0D3034 /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release (test).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release (test).xcconfig"; sourceTree = "<group>"; };
 		50CA7E8A28B6038700F76807 /* AddCreditCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardVC.swift; sourceTree = "<group>"; };
+		7665829BB983CFA404607172 /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig"; sourceTree = "<group>"; };
 		7826E54722C8482000A8B218 /* NewDukeCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDukeCardVC.swift; sourceTree = "<group>"; };
 		783F494522D1566200408EBF /* EnterPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinPopUpVC.swift; sourceTree = "<group>"; };
 		99941A99228E206A0002B5B6 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
@@ -227,19 +232,16 @@
 		99941AAC228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneVerificationVC.swift; sourceTree = "<group>"; };
 		99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPhoneVerificationVC.swift; sourceTree = "<group>"; };
 		99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		B01A3E4A1A22D55744A7CE71 /* Pods_BringIt_BringItUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringIt_BringItUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8B606D3EF48852AB9427BD7 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
-		BB154EBA6110BBC9C1FC34F4 /* Pods-BringIt.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.release (production).xcconfig"; sourceTree = "<group>"; };
-		BCA16F012081EBACC1E6FEDB /* Pods-BringIt-BringItUITests.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (test).xcconfig"; sourceTree = "<group>"; };
-		C9482E183170FDB4B439601A /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig"; sourceTree = "<group>"; };
-		CA860F63BA9005F5278B7C91 /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig"; sourceTree = "<group>"; };
-		DFB24CE2045CC909F72F450E /* Pods-BringIt-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
+		9A6BA95DA6D87C5A25DEA774 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
+		A8BEBFF97863363234E92DCA /* Pods-BringIt-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
+		B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckNetIDVerificationVC.swift; sourceTree = "<group>"; };
+		B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNetIDVerificationVC.swift; sourceTree = "<group>"; };
+		B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutNavigationVC.swift; sourceTree = "<group>"; };
+		B711F2EFA81D004CAD2D82FA /* Pods-BringIt-BringItUITests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (production).xcconfig"; sourceTree = "<group>"; };
+		E09CA64A4380C8D3F5A594B9 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release (production).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release (production).xcconfig"; sourceTree = "<group>"; };
 		E1F301EC24B117EA00D822D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E52D6CAD0CD19E8EDCE9A118 /* Pods-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
-		E5592B430BE5AB21639D7013 /* Pods-BringItUITests.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringItUITests.release (test).xcconfig"; path = "Target Support Files/Pods-BringItUITests/Pods-BringItUITests.release (test).xcconfig"; sourceTree = "<group>"; };
-		EB09B354617FB557E3CA2A1B /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release (test).xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release (test).xcconfig"; sourceTree = "<group>"; };
-		F1775073DAD35EAA46C88567 /* Pods-BringIt.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt.release (test).xcconfig"; path = "Target Support Files/Pods-BringIt/Pods-BringIt.release (test).xcconfig"; sourceTree = "<group>"; };
-		FAC06ACE728B5680112A7529 /* Pods_BringIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E66F80A9718352D06A5A4F40 /* Pods_BringIt_BringItUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BringIt_BringItUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F162A9589B3C613323DABF58 /* Pods-BringIt-BringItUITests.release (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (test).xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A6AD63CB026DABFAF77E43 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+				3F814D619FC19302D2710946 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58A878C1B413C2FF3D259F12 /* Pods_BringIt.framework in Frameworks */,
+				2B07CB9E1695A1FEDC2D3628 /* Pods_BringIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BE8D8246E0355BAA5BF10F9 /* Pods_BringIt_BringItUITests.framework in Frameworks */,
+				7F308F14D8B0318225AC3AC5 /* Pods_BringIt_BringItUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +366,12 @@
 		11158DAD1ECB63DB00A88338 /* Sign In/Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */,
 				1198FA191EC7C9D400864200 /* SignInVC.swift */,
 				11158DAB1ECB63D600A88338 /* AccountDetailsVC.swift */,
 				99941AAC228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift */,
 				99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */,
+				B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */,
 			);
 			name = "Sign In/Sign Up";
 			sourceTree = "<group>";
@@ -411,6 +415,7 @@
 				11A25F941ED317820051324B /* PlaceOrder.swift */,
 				112D6B1F1ED08EC400396BA5 /* OrderTableViewCell.swift */,
 				114AE7A51ED233FF00FC9060 /* OrderPlacedVC.swift */,
+				B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */,
 			);
 			name = Checkout;
 			sourceTree = "<group>";
@@ -501,9 +506,9 @@
 				11D4D0E11D5D019E00E19D9C /* DLRadioButton.framework */,
 				11D4D0DF1D5D019A00E19D9C /* CVCalendar.framework */,
 				11210CBD1D257EA400B8FD9E /* B68UIFloatLabelTextField.framework */,
-				FAC06ACE728B5680112A7529 /* Pods_BringIt.framework */,
-				B01A3E4A1A22D55744A7CE71 /* Pods_BringIt_BringItUITests.framework */,
-				4BF6FE00CC0DC2BDC0E3F13C /* Pods_OneSignalNotificationServiceExtension.framework */,
+				2BE2B48D0C7A5A45FC5145CB /* Pods_BringIt.framework */,
+				E66F80A9718352D06A5A4F40 /* Pods_BringIt_BringItUITests.framework */,
+				02FB8717EEC2951D64DC9A0B /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -511,22 +516,18 @@
 		3ABE99AB8571BD5C82DE5B22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4B8909EC2866BC684F0AEC19 /* Pods-BringIt.debug (production).xcconfig */,
-				21273CB025F7AE61EF4E5674 /* Pods-BringIt.debug (test).xcconfig */,
-				BB154EBA6110BBC9C1FC34F4 /* Pods-BringIt.release (production).xcconfig */,
-				F1775073DAD35EAA46C88567 /* Pods-BringIt.release (test).xcconfig */,
-				0782A50E3E0E1282C6C1E375 /* Pods-BringItUITests.debug (production).xcconfig */,
-				E52D6CAD0CD19E8EDCE9A118 /* Pods-BringItUITests.debug (test).xcconfig */,
-				42D163E2404522204C5767A7 /* Pods-BringItUITests.release (production).xcconfig */,
-				E5592B430BE5AB21639D7013 /* Pods-BringItUITests.release (test).xcconfig */,
-				2373FA1DEA3F5C83FA99330E /* Pods-BringIt-BringItUITests.debug (production).xcconfig */,
-				B8B606D3EF48852AB9427BD7 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */,
-				DFB24CE2045CC909F72F450E /* Pods-BringIt-BringItUITests.release (production).xcconfig */,
-				BCA16F012081EBACC1E6FEDB /* Pods-BringIt-BringItUITests.release (test).xcconfig */,
-				C9482E183170FDB4B439601A /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */,
-				CA860F63BA9005F5278B7C91 /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */,
-				3B8759FD47FF1C6A3BE473D1 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */,
-				EB09B354617FB557E3CA2A1B /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */,
+				32F60E7A1D37DBA195C748CA /* Pods-BringIt.debug (production).xcconfig */,
+				07BB34E69833FC0C9BC91502 /* Pods-BringIt.debug (test).xcconfig */,
+				096191E322478CB7E2197B84 /* Pods-BringIt.release (production).xcconfig */,
+				10C2F2600BDF770F2611DBE0 /* Pods-BringIt.release (test).xcconfig */,
+				B711F2EFA81D004CAD2D82FA /* Pods-BringIt-BringItUITests.debug (production).xcconfig */,
+				9A6BA95DA6D87C5A25DEA774 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */,
+				A8BEBFF97863363234E92DCA /* Pods-BringIt-BringItUITests.release (production).xcconfig */,
+				F162A9589B3C613323DABF58 /* Pods-BringIt-BringItUITests.release (test).xcconfig */,
+				7665829BB983CFA404607172 /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */,
+				470F78191F26E9322C963AFF /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */,
+				E09CA64A4380C8D3F5A594B9 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */,
+				4C873371C21696812F0D3034 /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -557,7 +558,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07AD429025F58EF6005B2B9D /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				9E26156A2DDD80D704BA4D96 /* [CP] Check Pods Manifest.lock */,
+				7399A23B997C3E562B6C59AB /* [CP] Check Pods Manifest.lock */,
 				07AD428425F58EF6005B2B9D /* Sources */,
 				07AD428525F58EF6005B2B9D /* Frameworks */,
 				07AD428625F58EF6005B2B9D /* Resources */,
@@ -575,13 +576,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1102201C1CE68A83003D82FB /* Build configuration list for PBXNativeTarget "BringIt" */;
 			buildPhases = (
-				F27999876EFF2A597E035A18 /* [CP] Check Pods Manifest.lock */,
+				49A01818E91D562A7D5D5701 /* [CP] Check Pods Manifest.lock */,
 				11021FEE1CE68A83003D82FB /* Sources */,
 				11021FEF1CE68A83003D82FB /* Frameworks */,
 				11021FF01CE68A83003D82FB /* Resources */,
 				11D4D0DC1D5D00CE00E19D9C /* Embed Frameworks */,
 				07AD429525F58EF6005B2B9D /* Embed App Extensions */,
-				5D061C1E55132A0697736F50 /* [CP] Embed Pods Frameworks */,
+				6CB5307B0CC6301131805A36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -615,11 +616,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 110220221CE68A83003D82FB /* Build configuration list for PBXNativeTarget "BringItUITests" */;
 			buildPhases = (
-				6BA6A12C487D40361DFF0A7E /* [CP] Check Pods Manifest.lock */,
+				580E01E3DD1BD006C59B6F27 /* [CP] Check Pods Manifest.lock */,
 				1102200F1CE68A83003D82FB /* Sources */,
 				110220101CE68A83003D82FB /* Frameworks */,
 				110220111CE68A83003D82FB /* Resources */,
-				723D31C2B5DC5C4438960865 /* [CP] Embed Pods Frameworks */,
+				22AB5BDEEF0F5EA3D116773B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -730,18 +731,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D061C1E55132A0697736F50 /* [CP] Embed Pods Frameworks */ = {
+		22AB5BDEEF0F5EA3D116773B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BringIt/Pods-BringIt-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -752,15 +752,21 @@
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeApplePay/StripeApplePay.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeCore/StripeCore.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeUICore/StripeUICore.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignal.framework/OneSignal",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalCore/OneSignalCore.framework/OneSignalCore",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalExtension/OneSignalExtension.framework/OneSignalExtension",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalOutcomes/OneSignalOutcomes.framework/OneSignalOutcomes",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -771,14 +777,43 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeApplePay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeUICore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalOutcomes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BringIt/Pods-BringIt-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6BA6A12C487D40361DFF0A7E /* [CP] Check Pods Manifest.lock */ = {
+		49A01818E91D562A7D5D5701 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BringIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		580E01E3DD1BD006C59B6F27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -800,18 +835,17 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		723D31C2B5DC5C4438960865 /* [CP] Embed Pods Frameworks */ = {
+		6CB5307B0CC6301131805A36 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BringIt/Pods-BringIt-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -822,15 +856,21 @@
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeApplePay/StripeApplePay.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeCore/StripeCore.framework",
+				"${BUILT_PRODUCTS_DIR}/StripeUICore/StripeUICore.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignal.framework/OneSignal",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalCore/OneSignalCore.framework/OneSignalCore",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalExtension/OneSignalExtension.framework/OneSignalExtension",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignal/OneSignalOutcomes/OneSignalOutcomes.framework/OneSignalOutcomes",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -841,14 +881,21 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeApplePay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeUICore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalOutcomes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BringIt/Pods-BringIt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E26156A2DDD80D704BA4D96 /* [CP] Check Pods Manifest.lock */ = {
+		7399A23B997C3E562B6C59AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -864,28 +911,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F27999876EFF2A597E035A18 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BringIt-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -909,6 +934,7 @@
 			files = (
 				112D6B271ED19BEE00396BA5 /* PaymentMethodsVC.swift in Sources */,
 				1132207F1EE45DCE00F481F2 /* UpdateAccountInfoViewController.swift in Sources */,
+				B295CCCC2959534B006D58E5 /* SendNetIDVerificationVC.swift in Sources */,
 				11C9EA8C1ECCA67D004A4C1E /* PromotionsTableViewCell.swift in Sources */,
 				11ED77311EE1BC360086F4B1 /* PastOrderDetailViewController.swift in Sources */,
 				112D6B251ED1984500396BA5 /* NewAddressVC.swift in Sources */,
@@ -943,6 +969,7 @@
 				11BFEB561ED5944E00C2CEA8 /* PromotionCollectionViewCell.swift in Sources */,
 				1183F00D1EF8F9FD00FFCD02 /* ButtonTableViewCell.swift in Sources */,
 				11423AF11EC89CC400011B4D /* RealmModels.swift in Sources */,
+				B295CCCA295940AF006D58E5 /* CheckNetIDVerificationVC.swift in Sources */,
 				11BFEB541ED4736600C2CEA8 /* FeaturedDishCollectionViewCell.swift in Sources */,
 				1183F0061EF8F6F700FFCD02 /* ApplicationSubmittedViewController.swift in Sources */,
 				7826E54822C8482000A8B218 /* NewDukeCardVC.swift in Sources */,
@@ -952,6 +979,7 @@
 				11BFEB5C1ED732FC00C2CEA8 /* PastOrderTableViewCell.swift in Sources */,
 				99941AAF228FCB270002B5B6 /* CheckPhoneVerificationVC.swift in Sources */,
 				118C0C1B1D6B71DA00035CC2 /* MyAPIClient2.swift in Sources */,
+				B295CCCE29595D50006D58E5 /* CheckoutNavigationVC.swift in Sources */,
 				118816F921E29CA700E73E45 /* NewCreditCardVC.swift in Sources */,
 				1198FA1C1EC7CE1800864200 /* Backend.swift in Sources */,
 				11C9EA851ECC9415004A4C1E /* RestaurantsHomeViewController.swift in Sources */,
@@ -1022,7 +1050,7 @@
 /* Begin XCBuildConfiguration section */
 		07AD429125F58EF6005B2B9D /* Debug (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9482E183170FDB4B439601A /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */;
+			baseConfigurationReference = 7665829BB983CFA404607172 /* Pods-OneSignalNotificationServiceExtension.debug (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1094,7 +1122,7 @@
 		};
 		07AD429225F58EF6005B2B9D /* Debug (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA860F63BA9005F5278B7C91 /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */;
+			baseConfigurationReference = 470F78191F26E9322C963AFF /* Pods-OneSignalNotificationServiceExtension.debug (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1166,7 +1194,7 @@
 		};
 		07AD429325F58EF6005B2B9D /* Release (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B8759FD47FF1C6A3BE473D1 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */;
+			baseConfigurationReference = E09CA64A4380C8D3F5A594B9 /* Pods-OneSignalNotificationServiceExtension.release (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1231,7 +1259,7 @@
 		};
 		07AD429425F58EF6005B2B9D /* Release (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB09B354617FB557E3CA2A1B /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */;
+			baseConfigurationReference = 4C873371C21696812F0D3034 /* Pods-OneSignalNotificationServiceExtension.release (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1344,7 +1372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1398,7 +1426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
@@ -1410,16 +1438,17 @@
 		};
 		1102201D1CE68A83003D82FB /* Debug (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B8909EC2866BC684F0AEC19 /* Pods-BringIt.debug (production).xcconfig */;
+			baseConfigurationReference = 32F60E7A1D37DBA195C748CA /* Pods-BringIt.debug (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3Y5399K9N5;
 				INFOPLIST_FILE = BringIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.1.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1432,16 +1461,17 @@
 		};
 		1102201E1CE68A83003D82FB /* Release (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB154EBA6110BBC9C1FC34F4 /* Pods-BringIt.release (production).xcconfig */;
+			baseConfigurationReference = 096191E322478CB7E2197B84 /* Pods-BringIt.release (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3Y5399K9N5;
 				INFOPLIST_FILE = BringIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.1.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1484,7 +1514,7 @@
 		};
 		110220231CE68A83003D82FB /* Debug (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2373FA1DEA3F5C83FA99330E /* Pods-BringIt-BringItUITests.debug (production).xcconfig */;
+			baseConfigurationReference = B711F2EFA81D004CAD2D82FA /* Pods-BringIt-BringItUITests.debug (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
@@ -1499,7 +1529,7 @@
 		};
 		110220241CE68A83003D82FB /* Release (Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFB24CE2045CC909F72F450E /* Pods-BringIt-BringItUITests.release (production).xcconfig */;
+			baseConfigurationReference = A8BEBFF97863363234E92DCA /* Pods-BringIt-BringItUITests.release (production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
@@ -1517,6 +1547,7 @@
 			baseConfigurationReference = 99941A99228E206A0002B5B6 /* Test.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_BACKEND_URL = "http://localhost:8000/includes/app";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1543,6 +1574,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMBINED_BACKEND_URL = "http://localhost:8000/includes/combinedBackend";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1562,7 +1594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1574,16 +1606,17 @@
 		};
 		99941A9B228E21BB0002B5B6 /* Debug (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21273CB025F7AE61EF4E5674 /* Pods-BringIt.debug (test).xcconfig */;
+			baseConfigurationReference = 07BB34E69833FC0C9BC91502 /* Pods-BringIt.debug (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3Y5399K9N5;
 				INFOPLIST_FILE = BringIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.1.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1610,7 +1643,7 @@
 		};
 		99941A9D228E21BB0002B5B6 /* Debug (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8B606D3EF48852AB9427BD7 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */;
+			baseConfigurationReference = 9A6BA95DA6D87C5A25DEA774 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
@@ -1667,7 +1700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
@@ -1679,16 +1712,17 @@
 		};
 		99941A9F228E21DC0002B5B6 /* Release (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1775073DAD35EAA46C88567 /* Pods-BringIt.release (test).xcconfig */;
+			baseConfigurationReference = 10C2F2600BDF770F2611DBE0 /* Pods-BringIt.release (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = BringIt/BringIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3Y5399K9N5;
 				INFOPLIST_FILE = BringIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.1.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1717,7 +1751,7 @@
 		};
 		99941AA1228E21DC0002B5B6 /* Release (Test) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCA16F012081EBACC1E6FEDB /* Pods-BringIt-BringItUITests.release (test).xcconfig */;
+			baseConfigurationReference = F162A9589B3C613323DABF58 /* Pods-BringIt-BringItUITests.release (test).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = BringItUITests/Info.plist;
