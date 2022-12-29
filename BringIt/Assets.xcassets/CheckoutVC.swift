@@ -213,6 +213,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         print("Setting up UI")
         
         setCustomBackButton()
+        checkForCreditCard()
         
         // Check if pickup option is available
         if restaurant.deliveryOnly == 1 {
@@ -640,7 +641,58 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
+        
         confirmOrder()
+    }
+    
+    @IBAction func unwindfromCreditCard( _ seg: UIStoryboardSegue) {
+    }
+    
+    func checkForCreditCard() {
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "isCurrent = %@", NSNumber(booleanLiteral: true))
+        user = realm.objects(User.self).filter(predicate).first!
+        print("Credit Card Method Entered")
+        print("Printing Existing Payment Methods")
+        print(user.paymentMethods)
+        // Setup Moya provider and send network request
+        let provider = MoyaProvider<APICalls>()
+        print("did not reach there")
+        provider.request(.stripeRetrieveCards(userID: user.id)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                do {
+                    print("reached here")
+                    print("Status code: \(moyaResponse.statusCode)")
+                    try moyaResponse.filterSuccessfulStatusCodes()
+                    
+                    let response = try moyaResponse.mapJSON() as! [String: Any]
+                    print(response)
+                    
+                    if let success = response["success"] {
+                       
+                        let creditCards = response["cards"] as! [AnyObject]
+                        if creditCards.isEmpty {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let creditcardpopup = storyboard.instantiateViewController(withIdentifier: "creditCardCheck")
+                            creditcardpopup.modalPresentationStyle = .fullScreen
+                            self.present(creditcardpopup, animated: true)
+                        }
+                        
+                    }
+                    else{
+                        print("Credit Card Info Not empty")
+                    }
+                    
+                } catch {
+                    // Miscellaneous network error
+                    print("Network Error")
+                }
+            case .failure(_):
+                // Connection failed
+                print("Connection failed")
+            }
+        }
     }
     
     func confirmOrder() {
@@ -840,7 +892,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "costCell", for: indexPath)
                 
-                cell.textLabel?.text = "Delivery Fee"
+                cell.textLabel?.text = "Delivery and Processing Fee"
                 if order.deliveryFee != -1.00 {
                     cell.detailTextLabel?.text = "$" + String(format: "%.2f", order.deliveryFee)
                 } else {

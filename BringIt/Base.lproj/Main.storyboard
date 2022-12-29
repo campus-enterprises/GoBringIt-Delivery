@@ -651,26 +651,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Kpw-Vg-eNS">
                                     <rect key="frame" x="0.0" y="117.33333015441895" width="390" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ON3-r3-Rph">
-                                            <rect key="frame" x="10" y="0.0" width="370" height="50"/>
-                                            <color key="backgroundColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
-                                            <state key="normal" title="+ New Address">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="addNewAddressButtonTapped:" destination="9gH-il-izJ" eventType="touchUpInside" id="myJ-gh-VBu"/>
-                                                <action selector="signInButtonTapped:" destination="fj7-VG-MJI" eventType="touchUpInside" id="18C-GD-6Kp"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ON3-r3-Rph" firstAttribute="leading" secondItem="Kpw-Vg-eNS" secondAttribute="leading" constant="10" id="CvZ-tT-45c"/>
-                                        <constraint firstItem="ON3-r3-Rph" firstAttribute="centerX" secondItem="Kpw-Vg-eNS" secondAttribute="centerX" id="NrW-xz-bWn"/>
-                                        <constraint firstItem="ON3-r3-Rph" firstAttribute="centerY" secondItem="Kpw-Vg-eNS" secondAttribute="centerY" id="TUb-Li-cf2"/>
-                                        <constraint firstItem="ON3-r3-Rph" firstAttribute="top" secondItem="Kpw-Vg-eNS" secondAttribute="top" id="gup-nh-QDQ"/>
-                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addressCell" textLabel="qtq-KD-pc3" style="IBUITableViewCellStyleDefault" id="TAa-xq-YUM">
@@ -708,7 +688,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="CQm-ca-njR"/>
                     <connections>
-                        <outlet property="addNewAddressButton" destination="ON3-r3-Rph" id="I8M-cy-svS"/>
                         <outlet property="myTableView" destination="Uxa-kk-944" id="IwM-vR-Pd0"/>
                         <segue destination="OqK-gA-k85" kind="show" identifier="toAddNewAddress" id="1ke-HS-myv"/>
                     </connections>
@@ -4304,14 +4283,14 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="avd-dC-6GM" secondAttribute="height" multiplier="245:272" id="HY0-KI-NWp"/>
                                 </constraints>
-                                <string key="text">All users must now have a valid credit card on file in order to ensure payment can be collected after your order. Don't worry, if you are using Food Points, nothing is changing. You will only be charged to your credit card if you have an insufficient balance on your DukeCard or fail to accept delivery. We hope this won't impact your GoBringIt experience in any way. Thank you so much for using GoBringIt!</string>
+                                <string key="text">Hey! All users must now have a valid credit card on file in order to ensure payment can be collected after you order. Don't worry: if you are using Food Points, nothing is changing. You will only be charged to your credit card if you have an insufficient balance on your DukeCard or fail to accept delivery. Please contact us if you have any questions or concerns about this new policy, and thank you for using GoBringIt!</string>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <color key="textColor" red="0.42776564654615734" green="0.42776564654615734" blue="0.42776564654615734" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7OB-c9-807"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LvX-zq-Xth" firstAttribute="centerX" secondItem="0JZ-El-PNO" secondAttribute="centerX" id="0TG-1A-gtk"/>
                             <constraint firstItem="LvX-zq-Xth" firstAttribute="top" secondItem="avd-dC-6GM" secondAttribute="bottom" constant="8" id="SYO-Bc-JQh"/>
@@ -4536,6 +4515,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ehY-hl-ubx"/>
+        <segue reference="PyD-I9-eRF"/>
         <segue reference="3ih-yU-KBO"/>
         <segue reference="bYc-uf-2Ig"/>
         <segue reference="Kqn-NN-fgE"/>

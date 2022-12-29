@@ -70,7 +70,7 @@ class AddressesViewController: UIViewController, UITableViewDelegate, UITableVie
         setCustomBackButton()
         
         self.title = "Addresses"
-        addNewAddressButton.layer.cornerRadius = Constants.cornerRadius
+        //addNewAddressButton.layer.cornerRadius = Constants.cornerRadius
     }
     
     /* Customize tableView attributes */
