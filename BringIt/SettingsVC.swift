@@ -217,7 +217,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     }
                 }
             } else if cellName == "Contact Us" {
-                if let url = URL(string: "https://www.campusenterprises.org/contactus") {
+                if let url = URL(string: "https://campusenterprises.com/bringit-bug-report") {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url, options: [:])
                     } else {

@@ -79,6 +79,7 @@
 		99941AAD228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAC228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift */; };
 		99941AAF228FCB270002B5B6 /* CheckPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */; };
 		99BD1A2A229CA3C7000E6451 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */; };
+		B21CB245295E875F000A2DBD /* PromoCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB244295E875F000A2DBD /* PromoCodeVC.swift */; };
 		B295CCCA295940AF006D58E5 /* CheckNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */; };
 		B295CCCC2959534B006D58E5 /* SendNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */; };
 		B295CCCE29595D50006D58E5 /* CheckoutNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */; };
@@ -234,6 +235,7 @@
 		99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9A6BA95DA6D87C5A25DEA774 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
 		A8BEBFF97863363234E92DCA /* Pods-BringIt-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
+		B21CB244295E875F000A2DBD /* PromoCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeVC.swift; sourceTree = "<group>"; };
 		B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckNetIDVerificationVC.swift; sourceTree = "<group>"; };
 		B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNetIDVerificationVC.swift; sourceTree = "<group>"; };
 		B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutNavigationVC.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				112D6B1F1ED08EC400396BA5 /* OrderTableViewCell.swift */,
 				114AE7A51ED233FF00FC9060 /* OrderPlacedVC.swift */,
 				B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */,
+				B21CB244295E875F000A2DBD /* PromoCodeVC.swift */,
 			);
 			name = Checkout;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				50CA7E8B28B6038700F76807 /* AddCreditCardVC.swift in Sources */,
 				112D6B151ECF1B9A00396BA5 /* AddToCartVC.swift in Sources */,
 				11158DA81ECB1B4700A88338 /* Constants.swift in Sources */,
+				B21CB245295E875F000A2DBD /* PromoCodeVC.swift in Sources */,
 				11DBC59C1EE4C6FA0000A600 /* BecomeADriverVC.swift in Sources */,
 				99BD1A2A229CA3C7000E6451 /* UIColorExtension.swift in Sources */,
 				99941AAB228F54520002B5B6 /* Helper.swift in Sources */,

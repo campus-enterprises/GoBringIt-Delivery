@@ -36,6 +36,8 @@ extension UIViewController {
         case invalidVerificationCode
         case invalidNetIDVerification
         case netIdInUse
+        case loginError
+        case invalidPromoCode
     }
     
     func showError(button: UIButton, activityIndicator: UIActivityIndicatorView?, error: Error, defaultButtonText: String?) {
@@ -61,11 +63,17 @@ extension UIViewController {
         case .netIdInUse:
             button.setTitle("NetID is already in use on a different account.", for: .normal)
             button.isEnabled = false
+        case .loginError:
+            button.setTitle("Invalid credentials. If using NetID, try email.", for: .normal)
+            button.isEnabled = false
         case .invalidPassword:
             button.setTitle("Incorrect password. Please try again.", for: .normal)
             button.isEnabled = false
         case .invalidPhoneNumber:
             button.setTitle("Please enter a valid phone number.", for: .normal)
+            button.isEnabled = false
+        case .invalidPromoCode:
+            button.setTitle("Promo code not available.", for: .normal)
             button.isEnabled = false
         case .fieldEmpty:
             button.setTitle("Please fill in all fields.", for: .normal)

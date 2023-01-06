@@ -167,8 +167,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                     self.showError(button: self.signInButton, activityIndicator: self.myActivityIndicator, error: .networkError, defaultButtonText: self.defaultButtonText)
                 }
             case .failure(_):
-                // Connection failed
-                self.showError(button: self.signInButton, activityIndicator: self.myActivityIndicator, error: .connectionFailed, defaultButtonText: self.defaultButtonText)
+                // Connection failed OR NetID invalid credentials
+                self.showError(button: self.signInButton, activityIndicator: self.myActivityIndicator, error: .loginError, defaultButtonText: self.defaultButtonText)
             }
         }
     }

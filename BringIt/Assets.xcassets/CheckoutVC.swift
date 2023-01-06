@@ -12,6 +12,7 @@ import Moya
 import Alamofire
 import AudioToolbox
 import SendGrid
+import _Concurrency
 
 class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {    
     
@@ -36,6 +37,10 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tryAgainButton: UIButton!
     
+    var promoLabel: UILabel!
+    var discountLabel: UILabel!
+    var totalLabel: UILabel!
+    
     // MARK: - Variables
     
     let defaults = UserDefaults.standard // Initialize UserDefaults
@@ -59,13 +64,15 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     var addressIndex = 0;
     var paymentIndex = 1;
+    var promoIndex = 2;
     
     // Row Indices
     var subtotalIndex = 0
     var deliveryFeeIndex = 1
-    var goBringItCreditIndex = 2
-    var salesTaxIndex = 3
-    var totalCostIndex = 4
+    var discountIndex = 2
+    var goBringItCreditIndex = 3
+    var salesTaxIndex = 4
+    var totalCostIndex = 5
     
     var totalAmount = 0.0
     
@@ -110,8 +117,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         checkIfLoggedIn()
         setupUI()
         calculateDeliveryFee()
-        totalAmount = calculateTotal()
-        myTableView.reloadData()
+        calculateTotal()
         checkButtonStatus()
     
     }
@@ -381,12 +387,16 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     /* Iterate over menu items in cart and add their total costs to the subtotal */
-    func calculateTotal() -> Double {
+    func calculateTotal() {
+        checkoutButton.isEnabled = false
+        checkoutButtonView.backgroundColor = Constants.red
+        checkoutButton.setTitle("Calculating total...", for: .normal)
+        
         // Delivery is selected
         if deliveryOrPickup.selectedSegmentIndex == deliveryIndex {
             deliverySelected()
         }
-            // Pickup is selected
+        // Pickup is selected
         else {
             pickupSelected()
         }
@@ -411,42 +421,135 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             total += order.deliveryFee >= 0.00 ? order.deliveryFee : 0.00
         }
         
-        if (user.gbiCredit != 0){
-            if (total >= user.gbiCredit){
-                total -= user.gbiCredit
-                gbiCreditUsed = user.gbiCredit
+        if (order.promoCode != "") {
+            let provider = MoyaProvider<CombinedAPICalls>()
+            try provider.request(.checkPromoCode(uid: String(user.id), restaurantID: order.restaurantID, paymentType: String(order.paymentMethod?.paymentMethodID ?? -1), amount: String(subtotal * 100), promoCode: order.promoCode)) { [self] result in
+                switch result {
+                case let .success(moyaResponse):
+                    do {
+                        print("Status code: \(moyaResponse.statusCode)")
+                        try moyaResponse.filterSuccessfulStatusCodes()
+                        let response = try moyaResponse.mapJSON() as! [String: Any]
+                        
+                        print("Check Discount Calculation Response: \(response)")
+                        
+                        // Check response from backend
+                        let successResponse = response["status"] as? String
+                        if successResponse == "success" && response["discount"] as? Double != 0.0 {
+                            // Successfully received server response
+                            print("Successfully added promo code")
+                            print(response["discount"])
+                            try! realm.write {
+                                order.discount = response["discount"] as! Double
+                                
+                                if (order.discount <= 0) {
+                                    discountIndex = -1
+                                    totalCostIndex -= 1
+                                    goBringItCreditIndex -= 1
+                                    salesTaxIndex -= 1
+                                } else {
+                                    total -= order.discount
+                                }
+                                
+                                if (user.gbiCredit != 0){
+                                    if (total >= user.gbiCredit){
+                                        total -= user.gbiCredit
+                                        gbiCreditUsed = user.gbiCredit
+                                    }
+                                    else{
+                                        gbiCreditUsed = total
+                                        total = 0
+                                    }
+                                }
+                                else{
+                                    goBringItCreditIndex = -1
+                                    salesTaxIndex -= 1
+                                    totalCostIndex -= 1
+                                }
+                                
+                                salesTax = total * restaurant.salesTaxAmount
+                                
+                                if (salesTax <= 0){
+                                    salesTaxIndex = -1
+                                    totalCostIndex -= 1
+                                } else{
+                                    total += salesTax
+                                }
+ 
+                                order.gbiCreditUsed = gbiCreditUsed
+                                order.salesTax = salesTax
+                                order.subtotal = subtotal
+                                
+                                // Display total price
+                                totalAmount = total
+                                cartTotal.text = "$" + String(format: "%.2f", total)
+                                print("New total update")
+                                myTableView.reloadData()
+                                checkButtonStatus()
+                            }
+                        } else {
+                            // Invalid request
+                        }
+                        print("Singaling")
+                    } catch {
+                        // Miscellaneous network error
+                        print("Singaling")
+                    }
+                case .failure(_):
+                    // Connection failed
+                    print("Singaling")
+                }
+            }
+        }
+        
+        else {
+            if (order.discount <= 0) {
+                discountIndex = -1
+                totalCostIndex -= 1
+                goBringItCreditIndex -= 1
+                salesTaxIndex -= 1
+            } else {
+                total -= order.discount
+            }
+            
+            if (user.gbiCredit != 0){
+                if (total >= user.gbiCredit){
+                    total -= user.gbiCredit
+                    gbiCreditUsed = user.gbiCredit
+                }
+                else{
+                    gbiCreditUsed = total
+                    total = 0
+                }
             }
             else{
-                gbiCreditUsed = total
-                total = 0
+                goBringItCreditIndex = -1
+                salesTaxIndex -= 1
+                totalCostIndex -= 1
             }
+            
+            salesTax = total * restaurant.salesTaxAmount
+            
+            if (salesTax <= 0){
+                salesTaxIndex = -1
+                totalCostIndex -= 1
+            } else{
+                total += salesTax
+            }
+            
+            // Update order subtotal
+            try! realm.write {
+                order.subtotal = subtotal
+                order.gbiCreditUsed = gbiCreditUsed
+                order.salesTax = salesTax
+            }
+            
+            // Display total price
+            totalAmount = total
+            cartTotal.text = "$" + String(format: "%.2f", total)
+            print("Old total update")
+            myTableView.reloadData()
         }
-        else{
-            goBringItCreditIndex = -1
-            salesTaxIndex -= 1
-            totalCostIndex -= 1
-        }
-        
-        salesTax = total * restaurant.salesTaxAmount
-
-        if (salesTax <= 0){
-            salesTaxIndex = -1
-            totalCostIndex -= 1
-        } else{
-            total += salesTax
-        }
-        
-        // Update order subtotal
-        try! realm.write {
-            order.subtotal = subtotal
-            order.gbiCreditUsed = gbiCreditUsed
-            order.salesTax = salesTax
-        }
-        
-        // Display total price
-        cartTotal.text = "$" + String(format: "%.2f", total)
-        
-        return total
     }
     
     // If there are items in the cart, and the address and payment method are defined, enable button
@@ -488,6 +591,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             checkoutButton.isEnabled = false
             checkoutButtonView.backgroundColor = Constants.red
+            cartTotal.isHidden = true
             checkoutButton.setTitle("Please select a payment method", for: .normal)
             
             return
@@ -524,6 +628,15 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             return
         }
         
+        if totalAmount == 0 {
+            checkoutButton.isEnabled = false
+            checkoutButtonView.backgroundColor = Constants.red
+            cartTotal.isHidden = true
+            checkoutButton.setTitle("Calculating total...", for: .normal)
+            
+            return
+        }
+        
         // Enable button if all above tests pass
         checkoutButton.isEnabled = true
         checkoutButtonView.backgroundColor = Constants.green
@@ -533,7 +646,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
     @IBAction func deliveryOrPickupTapped(_ sender: Any) {
         
-        totalAmount = calculateTotal()
+        calculateTotal()
+        updateViewConstraints()
         
         UIView.transition(with: myTableView,
                           duration: 0.1,
@@ -554,6 +668,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 
         addressIndex = 0;
         paymentIndex = 1;
+        promoIndex = 2;
         
         deliveryDetailsIndex = 0
         instructionsIndex = 1
@@ -562,9 +677,10 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         subtotalIndex = 0
         deliveryFeeIndex = 1
-        goBringItCreditIndex = 2
-        salesTaxIndex = 3
-        totalCostIndex = 4
+        discountIndex = 2
+        goBringItCreditIndex = 3
+        salesTaxIndex = 4
+        totalCostIndex = 5
     }
     
     func pickupSelected() {
@@ -577,12 +693,14 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         addressIndex = -1
         paymentIndex = 0
+        promoIndex = 1
         
         deliveryFeeIndex = -1
         subtotalIndex = 0
-        goBringItCreditIndex = 1
-        salesTaxIndex = 2
-        totalCostIndex = 3
+        discountIndex = 1
+        goBringItCreditIndex = 2
+        salesTaxIndex = 3
+        totalCostIndex = 4
     }
     
     @IBAction func checkoutButtonTapped(_ sender: UIButton) {
@@ -611,7 +729,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         confirmButton.isEnabled = true
         checkingOutView.backgroundColor = Constants.green
         checkingOutTitle.text = "Are you sure you want to checkout?"
-        checkingOutDetails.text = "Your order total is $\(String(format: "%.2f", calculateTotal()))."
+        checkingOutDetails.text = "Your order total is $\(String(format: "%.2f", totalAmount))."
         cancelButton.setTitle("Cancel", for: .normal)
     }
     
@@ -653,6 +771,12 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction func unwindFromNetID( _ seg: UIStoryboardSegue) {
         print("Doing a credit check")
         checkForCreditCard(doDismiss: true)
+    }
+    
+    @IBAction func unwindFromPromoCode( _ seg: UIStoryboardSegue) {
+        calculateTotal()
+        updateViewConstraints()
+        checkButtonStatus()
     }
     
     func forceCreditCard(doDismiss: Bool) {
@@ -796,12 +920,11 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if section == deliveryDetailsIndex {
             if (deliveryOrPickup.selectedSegmentIndex == pickupIndex){ // pickup selected
                 return 1
             }
-            return 2;
+            return 3;
         } else if section == instructionsIndex {
             return 1
         } else if section == menuItemsIndex {
@@ -813,6 +936,9 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
             if order.gbiCreditUsed > 0 {
                 segments+=1 //GBI Credit
+            }
+            if order.discount > 0 {
+                segments+=1 // Promo code discount
             }
             if order.salesTax > 0 {
                 segments+=1
@@ -853,6 +979,19 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                     
                 } else {
                     cell.detailTextLabel?.text = "Please select a payment method"
+                }
+                
+            } else if (indexPath.row == promoIndex) {
+                
+                promoLabel = cell.detailTextLabel
+                
+                cell.textLabel?.text = "Promo Code"
+                
+                if order.promoCode != "" {
+                    cell.detailTextLabel?.text = order.promoCode
+                    
+                } else {
+                    cell.detailTextLabel?.text = "Enter a promo code (optional)"
                 }
                 
             }
@@ -920,6 +1059,16 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 }
                 
                 return cell
+            } else if indexPath.row == discountIndex {
+                if order.discount > 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "costCell", for: indexPath)
+                    discountLabel = cell.detailTextLabel
+                    
+                    cell.textLabel?.text = "Promo Discount"
+                    
+                    cell.detailTextLabel?.text = "$" + String(format: "%.2f", order.discount)
+                    return cell
+                }
             }
             // GoBringIt Credit
             else if indexPath.row == goBringItCreditIndex {
@@ -948,6 +1097,8 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             else if indexPath.row == totalCostIndex {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "costCell", for: indexPath)
+                
+                totalLabel = cell.detailTextLabel
                 
                 cell.textLabel?.text = "Total"
                 cell.detailTextLabel?.text = "$" + String(format: "%.2f", totalAmount)
@@ -1010,6 +1161,9 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             } else if indexPath.row == paymentIndex {
                 
                 performSegue(withIdentifier: "toPaymentMethodsFromCheckout", sender: self)
+            } else if indexPath.row == promoIndex {
+                
+                performSegue(withIdentifier: "toPromoCodeFromCheckout", sender: self)
             }
         } else if indexPath.section == menuItemsIndex {
             
@@ -1048,8 +1202,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 myTableView.deleteRows(at: [indexPath], with: .automatic)
                 
                 // Reload tableview and adjust tableview height and recalculate costs
-                self.totalAmount = calculateTotal()
-                myTableView.reloadData()
+                calculateTotal()
                 updateViewConstraints()
                 checkButtonStatus()
             }
@@ -1072,7 +1225,7 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             print("Preparing for toOrderPlaced segue")
             
             let orderPlacedVC = segue.destination as! OrderPlacedVC
-            orderPlacedVC.totalSpent = calculateTotal()
+            orderPlacedVC.totalSpent = totalAmount
             orderPlacedVC.streetAddress = (order.address?.streetAddress) ?? ""
             orderPlacedVC.confirmationMessage = confirmationMessage
             
@@ -1110,6 +1263,11 @@ class CheckoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             paymentMethodsVC.comingFromCheckout = true
             paymentMethodsVC.order = order
             paymentMethodsVC.selectedPaymentKey = order.paymentMethod?.compoundKey
+        }
+        else if segue.identifier == "toPromoCodeFromCheckout" {
+            let promoCodeVC = segue.destination as! PromoCodeVC
+            promoCodeVC.order = order
+            promoCodeVC.user = user
         }
         else if segue.identifier == "toAddressesFromCheckout" {
             let addressesVC = segue.destination as! AddressesViewController

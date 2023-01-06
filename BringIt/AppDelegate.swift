@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // COMMENT OUT TO PREVENT UPDATE NOTIFICATION ON SIMULATOR
-        //sirenAlert()
+        sirenAlert()
         
         // Set up keyboard manager
         IQKeyboardManager.shared.enable = true
@@ -173,7 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
-        _ = try! Realm()
+        _ = try? Realm()
         
         return true
     }

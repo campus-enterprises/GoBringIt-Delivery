@@ -187,7 +187,8 @@ extension APICalls : TargetType {
 
 
 enum CombinedAPICalls {
-    case placeOrder(uid: String, restaurantID: String, paymentValue: String, isPickup: String, amount: String, deliveryFee: String, creditUsed: String, paymentType: String, name: String, rememberPayment: String, addressId: String, instructions: String)
+    case placeOrder(uid: String, restaurantID: String, paymentValue: String, isPickup: String, amount: String, deliveryFee: String, creditUsed: String, paymentType: String, name: String, rememberPayment: String, addressId: String, instructions: String, promoCode: String)
+    case checkPromoCode(uid: String, restaurantID: String, paymentType: String, amount: String, promoCode: String)
     case sendPhoneVerification(phoneNumber: String)
     case sendNetIDVerification(netid: String, uid: String)
     case checkPhoneVerificationCode(phoneNumber: String, code: String)
@@ -209,8 +210,10 @@ extension CombinedAPICalls : TargetType {
     var baseURL: URL { return URL(string: Environment.combinedBackendURL.absoluteString)! }
     var path: String {
         switch self {
-        case .placeOrder(_,_,_,_,_,_,_,_,_,_,_,_):
+        case .placeOrder(_,_,_,_,_,_,_,_,_,_,_,_,_):
             return "/placeOrder.php"
+        case .checkPromoCode(_,_,_,_,_):
+            return "/checkPromoDiscount.php"
         case .fetchHours(_):
             return "/fetchHours.php"
         case .sendPhoneVerification(_):
@@ -240,7 +243,7 @@ extension CombinedAPICalls : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .placeOrder, .fetchHours, .sendPhoneVerification, .checkPhoneVerificationCode, .checkNetIDVerificationCode, .sendNetIDVerification, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
+        case .placeOrder, .checkPromoCode, .fetchHours, .sendPhoneVerification, .checkPhoneVerificationCode, .checkNetIDVerificationCode, .sendNetIDVerification, .clearCart, .retrieveDukeCards, .deleteDukeCard, .addAddress, .deleteAddress, .retrieveAddresses, .fetchConfirmationMessage:
             return .post
         }
 
@@ -252,7 +255,7 @@ extension CombinedAPICalls : TargetType {
     
     var task: Task {
         switch self {
-        case .placeOrder(let uid, let restaurantID, let payingWithCC, let isPickup, let amount, let deliveryFee, let creditUsed, let paymentType, let name, let rememberPayment, let addressId, let instructions):
+        case .placeOrder(let uid, let restaurantID, let payingWithCC, let isPickup, let amount, let deliveryFee, let creditUsed, let paymentType, let name, let rememberPayment, let addressId, let instructions, let promoCode):
             return .requestParameters(parameters: ["uid": uid,
                                                    "cid": restaurantID,
                                                    "pmt": payingWithCC,
@@ -265,7 +268,15 @@ extension CombinedAPICalls : TargetType {
                                                    "mobile": "1",
                                                    "remember_payment": rememberPayment,
                                                    "address_id": addressId,
-                                                   "instructions": instructions
+                                                   "instructions": instructions,
+                                                   "promo_code": promoCode
+                ], encoding: JSONEncoding.default)
+        case .checkPromoCode(let uid, let restaurantID, let paymentType, let amount, let promoCode):
+            return .requestParameters(parameters: ["uid": uid,
+                                                   "cid": restaurantID,
+                                                   "amount": amount,
+                                                   "payment_type": paymentType,
+                                                   "promo_code": promoCode
                 ], encoding: JSONEncoding.default)
         case .fetchHours(let restaurantId):
             return .requestParameters(parameters: ["restaurantId": restaurantId], encoding: JSONEncoding.default)

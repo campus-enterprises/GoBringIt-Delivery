@@ -11,6 +11,8 @@ import RealmSwift
 
 class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var completion: (() -> Void)?
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var myTableView: UITableView!
@@ -399,6 +401,8 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 pvc.delegate?.presentationControllerWillDismiss?(pvc)
             }
         }
+        
+        completion?()
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -708,6 +712,7 @@ class AddToCartVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cleanUpRealm()
         }
         
+        completion?()
         self.dismiss(animated: true, completion: nil)
     }
 

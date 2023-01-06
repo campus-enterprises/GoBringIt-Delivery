@@ -195,4 +195,6 @@ class Order: Object {
     @objc dynamic var isDelivery = true
     @objc dynamic var paidWithString = ""
     @objc dynamic var instructions = ""
+    @objc dynamic var promoCode = ""
+    @objc dynamic var discount = 0.0
 }

@@ -119,7 +119,8 @@ extension CheckoutVC {
             name: user.fullName,
             rememberPayment: order.paymentMethod!.unsaved ? "1" : "-1",
             addressId:  "\(order.address?.id ?? "NULL")",
-            instructions: "\(order.instructions)"
+            instructions: "\(order.instructions)",
+            promoCode: "\(order.promoCode)"
         )) { result in
             switch result {
             case let .success(moyaResponse):
@@ -198,11 +199,11 @@ extension CheckoutVC {
         
         let cardID = paymentMethod.first!.paymentValue
         
-        print("ABOUT TO CHARGE CREDIT CARD: \(cardID). AMOUNT = \(Int(calculateTotal() * 100))")
+        print("ABOUT TO CHARGE CREDIT CARD: \(cardID). AMOUNT = \(Int(totalAmount * 100))")
         
         // Setup Moya provider and send network request
         let provider = MoyaProvider<APICalls>()
-        provider.request(.stripeCharge(userID: user.id, restaurantID: restaurant.id, amount: "\(Int(calculateTotal() * 100))", cardID: cardID)) { result in
+        provider.request(.stripeCharge(userID: user.id, restaurantID: restaurant.id, amount: "\(Int(totalAmount * 100))", cardID: cardID)) { result in
             switch result {
             case let .success(moyaResponse):
                 do {

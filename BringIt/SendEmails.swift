@@ -80,8 +80,6 @@ extension CheckoutVC {
             dishesString.append(otherDetails + "<br>")
         }
         
-        let total = calculateTotal()
-        
         // Get formatted address string
         let address = order.address!
         var addressString = ""
@@ -115,8 +113,8 @@ extension CheckoutVC {
             subject: "Your food is being prepared! (Order #\(order.id))"
         )
         let contents = Content.emailBody(
-            plain: "<p>Hi \(firstName),<br><br>Your order from \(restaurantName) is being prepared! \(travelTimeMessage)<br><br>Here is your order summary:<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", total))<br><br>Thank you for using the GoBringIt app :)</p>",
-            html: "<p>Hi \(firstName),<br><br>Your order from \(restaurantName) is being prepared! \(travelTimeMessage)<br><br>Here is your order summary:<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", total))<br><br>Thank you for using the GoBringIt app :)</p>"
+            plain: "<p>Hi \(firstName),<br><br>Your order from \(restaurantName) is being prepared! \(travelTimeMessage)<br><br>Here is your order summary:<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", totalAmount))<br><br>Thank you for using the GoBringIt app :)</p>",
+            html: "<p>Hi \(firstName),<br><br>Your order from \(restaurantName) is being prepared! \(travelTimeMessage)<br><br>Here is your order summary:<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", totalAmount))<br><br>Thank you for using the GoBringIt app :)</p>"
         )
         let email = Email(
             personalizations: [personalizations],
@@ -206,8 +204,6 @@ extension CheckoutVC {
             dishesString.append(otherDetails + "<br>")
         }
         
-        let total = calculateTotal()
-        
         // Get formatted address string
         let address = order.address
         var addressString = ""
@@ -253,8 +249,8 @@ extension CheckoutVC {
             subject: "New GoBringIt Order! (#\(order.id))"
         )
         let contents = Content.emailBody(
-            plain: "<p>Receipt for \(restaurantName):<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)<br><br><b>Name:</b> \(fullName)<br><b>Phone number:</b><br>\(user.phoneNumber.toPhoneNumber())<br><b>Email address:</b><br>\(user.email)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", total))<br><br>Thank you for using the GoBringIt app :) Don't forget to tip your driver!</p>",
-            html: "<p>Receipt for \(restaurantName):<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)<br><br><b>Name:</b> \(fullName)<br><b>Phone number:</b><br>\(user.phoneNumber.toPhoneNumber())<br><b>Email address:</b><br>\(user.email)\(addressString)<br><b>Payment Method:</b> \(order.paymentMethod?.paymentString ?? "Not found")<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", total))<br><br>Thank you for using the GoBringIt app :) Don't forget to tip your driver!</p>"
+            plain: "<p>Receipt for \(restaurantName):<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)<br><br><b>Name:</b> \(fullName)<br><b>Phone number:</b><br>\(user.phoneNumber.toPhoneNumber())<br><b>Email address:</b><br>\(user.email)\(addressString)\(paymentMethodString)<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", totalAmount))<br><br>Thank you for using the GoBringIt app :) Don't forget to tip your driver!</p>",
+            html: "<p>Receipt for \(restaurantName):<br><br><b>Order #:</b> \(order.id)<br><b>Order time:</b> \(orderTimeString)<br><br><b>Name:</b> \(fullName)<br><b>Phone number:</b><br>\(user.phoneNumber.toPhoneNumber())<br><b>Email address:</b><br>\(user.email)\(addressString)<br><b>Payment Method:</b> \(order.paymentMethod?.paymentString ?? "Not found")<br><br><b>Order Details:</b><br>\(dishesString)<br><b>Subtotal:</b> $\(String(format: "%.2f", order.subtotal))\(deliveryFeeString)<br><b>Total:</b> $\(String(format: "%.2f", totalAmount))<br><br>Thank you for using the GoBringIt app :) Don't forget to tip your driver!</p>"
         )
         let email = Email(
             personalizations: [personalizations],
