@@ -36,6 +36,7 @@ enum APICalls {
     case stripeEphemeralKeys(apiVersion: String, userID: String)
     case verifyAddress(addressString: String)
     case getDeliveryFee(addressString: String, restaurantID: String)
+    case deleteAccount(uid: String)
 }
 
 extension APICalls : TargetType {
@@ -49,6 +50,8 @@ extension APICalls : TargetType {
             return "/signInUser.php"
         case .signUpUser(_,_,_,_):
             return "/signUpUser.php"
+        case .deleteAccount(_):
+            return "/deleteAccount.php"
         case .fetchPromotions:
             return "/fetchPromotions.php"
         case .fetchRestaurantData:
@@ -100,7 +103,7 @@ extension APICalls : TargetType {
         switch self {
         case .fetchPromotions, .fetchRestaurantData, .fetchRestaurantsInfo, .fetchVersionNumber, .fetchAPIKey:
             return .get
-        case .signInUser, .signUpUser, .updateCurrentAddress, .addItemToCart, .addOrder, .updateAccountInfo, .resetPassword, .fetchAccountInfo, .fetchAccountAddress, .fetchMenuCategories, .fetchFeaturedDishes, .fetchMenuItems, .fetchWaitTime, .stripeAddCard, .stripeRetrieveCards, .stripeCharge, .stripeEphemeralKeys, .verifyAddress, .getDeliveryFee:
+        case .signInUser, .signUpUser, .deleteAccount, .updateCurrentAddress, .addItemToCart, .addOrder, .updateAccountInfo, .resetPassword, .fetchAccountInfo, .fetchAccountAddress, .fetchMenuCategories, .fetchFeaturedDishes, .fetchMenuItems, .fetchWaitTime, .stripeAddCard, .stripeRetrieveCards, .stripeCharge, .stripeEphemeralKeys, .verifyAddress, .getDeliveryFee:
             return .post
         }
     }
@@ -122,6 +125,8 @@ extension APICalls : TargetType {
         case .signInUser(let email, let password):
             return .requestParameters(parameters: ["email": email,
             "password": password], encoding: JSONEncoding.default)
+        case .deleteAccount(let uid):
+            return .requestParameters(parameters: ["uid": uid], encoding: JSONEncoding.default)
         case .signUpUser(let fullName, let email, let password, let phoneNumber):
             return .requestParameters(parameters: ["name": fullName,
                     "email": email,

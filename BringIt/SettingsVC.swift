@@ -76,7 +76,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             sections.append(SettingsSection(title: "Become a Driver", cells: ["Become a Driver"]))
             
-            sections.append(SettingsSection(title: "SignIn-SignOut", cells: ["Sign Out"]))
+            sections.append(SettingsSection(title: "SignIn-SignOut", cells: ["Sign Out", "Delete Account"]))
         } else {
             
             sections.append(SettingsSection(title: "About Us", cells: ["Campus Enterprises", "Contact Us"]))
@@ -234,12 +234,19 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 // TO-DO: Add modal alert for user to confirm sign out
                 
                 signOutUser()
+                setupCells()
                 performSegue(withIdentifier: "toSignInFromSettings", sender: self)
+            } else if cellName == "Delete Account" {
+                performSegue(withIdentifier: "toDeleteAccount", sender: self)
             } else if cellName == "Become a Driver" {
                 performSegue(withIdentifier: "toBecomeADriver", sender: self)
             }
         }
         
+    }
+    
+    @IBAction func unwindfromDeletion( _ seg: UIStoryboardSegue) {
+        setupCells()
     }
     
     

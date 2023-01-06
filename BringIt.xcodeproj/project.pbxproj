@@ -80,6 +80,7 @@
 		99941AAF228FCB270002B5B6 /* CheckPhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE228FCB270002B5B6 /* CheckPhoneVerificationVC.swift */; };
 		99BD1A2A229CA3C7000E6451 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BD1A29229CA3C7000E6451 /* UIColorExtension.swift */; };
 		B21CB245295E875F000A2DBD /* PromoCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB244295E875F000A2DBD /* PromoCodeVC.swift */; };
+		B23867A92968A165009FE47E /* DeleteAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23867A82968A165009FE47E /* DeleteAccountVC.swift */; };
 		B295CCCA295940AF006D58E5 /* CheckNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */; };
 		B295CCCC2959534B006D58E5 /* SendNetIDVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */; };
 		B295CCCE29595D50006D58E5 /* CheckoutNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */; };
@@ -236,6 +237,7 @@
 		9A6BA95DA6D87C5A25DEA774 /* Pods-BringIt-BringItUITests.debug (test).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.debug (test).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.debug (test).xcconfig"; sourceTree = "<group>"; };
 		A8BEBFF97863363234E92DCA /* Pods-BringIt-BringItUITests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BringIt-BringItUITests.release (production).xcconfig"; path = "Target Support Files/Pods-BringIt-BringItUITests/Pods-BringIt-BringItUITests.release (production).xcconfig"; sourceTree = "<group>"; };
 		B21CB244295E875F000A2DBD /* PromoCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeVC.swift; sourceTree = "<group>"; };
+		B23867A82968A165009FE47E /* DeleteAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountVC.swift; sourceTree = "<group>"; };
 		B295CCC9295940AF006D58E5 /* CheckNetIDVerificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckNetIDVerificationVC.swift; sourceTree = "<group>"; };
 		B295CCCB2959534B006D58E5 /* SendNetIDVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNetIDVerificationVC.swift; sourceTree = "<group>"; };
 		B295CCCD29595D50006D58E5 /* CheckoutNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutNavigationVC.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				1183F0071EF8F81100FFCD02 /* SubmitDriverApplicationViewController.swift */,
 				7826E54722C8482000A8B218 /* NewDukeCardVC.swift */,
 				783F494522D1566200408EBF /* EnterPinPopUpVC.swift */,
+				B23867A82968A165009FE47E /* DeleteAccountVC.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -965,6 +968,7 @@
 				11158DAA1ECB25A700A88338 /* Extensions.swift in Sources */,
 				11C9EA8A1ECCA607004A4C1E /* MessagesTableViewCell.swift in Sources */,
 				11C9EA8E1ECDB4BE004A4C1E /* CreateRestaurantModels.swift in Sources */,
+				B23867A92968A165009FE47E /* DeleteAccountVC.swift in Sources */,
 				1183F0081EF8F81100FFCD02 /* SubmitDriverApplicationViewController.swift in Sources */,
 				07FD96462631F82A00B6E8E8 /* NotificationsVC.swift in Sources */,
 				99941AAD228FBC0F0002B5B6 /* SendPhoneVerificationVC.swift in Sources */,
@@ -1454,7 +1458,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.1.3;
+				MARKETING_VERSION = 4.2.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "BringIt-Bridging-Header.h";
@@ -1477,7 +1481,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.1.3;
+				MARKETING_VERSION = 4.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
@@ -1622,7 +1626,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.1.3;
+				MARKETING_VERSION = 4.2.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "BringIt-Bridging-Header.h";
@@ -1728,7 +1732,7 @@
 				INFOPLIST_FILE = BringIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.1.3;
+				MARKETING_VERSION = 4.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BringIt-Bridging-Header.h";

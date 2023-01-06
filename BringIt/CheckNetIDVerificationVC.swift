@@ -14,8 +14,6 @@ import Moya
 
 class CheckNetIDVerificationVC: UIViewController, UITextFieldDelegate {
     
-    // MARK: - IBOutlets
-    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     

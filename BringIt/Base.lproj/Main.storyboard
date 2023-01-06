@@ -1468,6 +1468,7 @@
                         <segue destination="Q8y-uo-6It" kind="show" identifier="toBecomeADriver" id="53y-ge-stW"/>
                         <segue destination="dfI-bZ-ma6" kind="show" identifier="toUpdateAccountInfo" id="HMp-qu-UIV"/>
                         <segue destination="uBY-Cs-7BN" kind="show" identifier="toNotificationsFromSettings" id="1xs-B1-F5V"/>
+                        <segue destination="peQ-n5-X6a" kind="showDetail" identifier="toDeleteAccount" id="FGW-dj-ekO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27K-Bo-QPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4429,7 +4430,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVu-Wp-6b3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4tO-Pu-LPG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="623" y="246"/>
+            <point key="canvasLocation" x="800" y="245"/>
         </scene>
         <!--Send NetID VerificationVC-->
         <scene sceneID="RtU-ym-ufW">
@@ -4618,14 +4619,119 @@
             </objects>
             <point key="canvasLocation" x="800" y="1631"/>
         </scene>
+        <!--Delete AccountVC-->
+        <scene sceneID="TOX-kg-p2i">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="peQ-n5-X6a" customClass="DeleteAccountVC" customModule="BringIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ToD-OY-9dR">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndd-YB-6Mr">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-Cv-5J6">
+                                        <rect key="frame" x="10" y="680" width="370" height="50"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ZM0-ca-jaP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
+                                        <state key="normal" title="Delete Account">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteUser:" destination="peQ-n5-X6a" eventType="touchUpInside" id="hqY-tB-NmM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVg-Ac-bh3">
+                                        <rect key="frame" x="10" y="745" width="370" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="JTk-wP-hVn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="cK9-wE-MwZ" kind="unwind" identifier="unwindDeletionSegue" unwindAction="unwindfromDeletion:" id="8D4-B4-CLQ"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlacingOrderImage" translatesAutoresizingMaskIntoConstraints="NO" id="s7p-M1-iTc">
+                                        <rect key="frame" x="154.66666666666666" y="209" width="81" height="81"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="81" id="Cce-kr-fpT"/>
+                                            <constraint firstAttribute="width" constant="81" id="Euo-dK-p3L"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete your account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmE-0L-85o">
+                                        <rect key="frame" x="45" y="300" width="300" height="68.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the button below to confirm your account deletion. This action is irreversible." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-ju-QpY">
+                                        <rect key="frame" x="45" y="360.66666666666669" width="300" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="bc5-Os-mfo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.8392156959" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="s7p-M1-iTc" firstAttribute="centerX" secondItem="Ndd-YB-6Mr" secondAttribute="centerX" id="03f-Nt-mZe"/>
+                                    <constraint firstItem="NNd-Cv-5J6" firstAttribute="leading" secondItem="eVg-Ac-bh3" secondAttribute="leading" id="3fR-Yy-bVY"/>
+                                    <constraint firstItem="s7p-M1-iTc" firstAttribute="top" secondItem="Ndd-YB-6Mr" secondAttribute="top" constant="209" id="6Ki-mc-pof"/>
+                                    <constraint firstAttribute="bottom" secondItem="eVg-Ac-bh3" secondAttribute="bottom" constant="49" id="9p7-bZ-HaO"/>
+                                    <constraint firstItem="PmE-0L-85o" firstAttribute="top" secondItem="s7p-M1-iTc" secondAttribute="bottom" constant="10" id="AUl-u9-4fY"/>
+                                    <constraint firstItem="NNd-Cv-5J6" firstAttribute="centerX" secondItem="Ndd-YB-6Mr" secondAttribute="centerX" id="D2F-fu-TdZ"/>
+                                    <constraint firstItem="NNd-Cv-5J6" firstAttribute="trailing" secondItem="eVg-Ac-bh3" secondAttribute="trailing" id="HUN-8T-4pC"/>
+                                    <constraint firstItem="lWb-ju-QpY" firstAttribute="top" secondItem="PmE-0L-85o" secondAttribute="bottom" constant="-8" id="TYy-AP-HwT"/>
+                                    <constraint firstItem="PmE-0L-85o" firstAttribute="centerX" secondItem="Ndd-YB-6Mr" secondAttribute="centerX" id="XYq-X2-l2S"/>
+                                    <constraint firstItem="eVg-Ac-bh3" firstAttribute="top" secondItem="NNd-Cv-5J6" secondAttribute="bottom" constant="15" id="Yyq-kZ-0LQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="PmE-0L-85o" secondAttribute="trailing" constant="45" id="dHy-10-OKN"/>
+                                    <constraint firstItem="lWb-ju-QpY" firstAttribute="leading" secondItem="PmE-0L-85o" secondAttribute="leading" id="fHl-kK-lhq"/>
+                                    <constraint firstItem="lWb-ju-QpY" firstAttribute="trailing" secondItem="PmE-0L-85o" secondAttribute="trailing" id="lrD-E0-IJO"/>
+                                    <constraint firstItem="PmE-0L-85o" firstAttribute="leading" secondItem="Ndd-YB-6Mr" secondAttribute="leading" constant="45" id="mjv-Fr-0nL"/>
+                                    <constraint firstAttribute="trailing" secondItem="NNd-Cv-5J6" secondAttribute="trailing" constant="10" id="qW1-K7-Srq"/>
+                                    <constraint firstItem="s7p-M1-iTc" firstAttribute="centerX" secondItem="PmE-0L-85o" secondAttribute="centerX" id="qnR-cV-hIk"/>
+                                    <constraint firstItem="NNd-Cv-5J6" firstAttribute="leading" secondItem="Ndd-YB-6Mr" secondAttribute="leading" constant="10" id="yqd-Ve-4kn"/>
+                                    <constraint firstItem="eVg-Ac-bh3" firstAttribute="centerX" secondItem="Ndd-YB-6Mr" secondAttribute="centerX" id="z0N-Nn-HL0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="60S-HS-xaV"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ndd-YB-6Mr" firstAttribute="leading" secondItem="60S-HS-xaV" secondAttribute="leading" id="CtH-CU-ZE3"/>
+                            <constraint firstItem="Ndd-YB-6Mr" firstAttribute="top" secondItem="ToD-OY-9dR" secondAttribute="top" id="HaR-8f-8WN"/>
+                            <constraint firstItem="60S-HS-xaV" firstAttribute="bottom" secondItem="Ndd-YB-6Mr" secondAttribute="bottom" constant="-57" id="vcR-Vf-eos"/>
+                            <constraint firstItem="60S-HS-xaV" firstAttribute="trailing" secondItem="Ndd-YB-6Mr" secondAttribute="trailing" id="vdU-oB-e84"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K7e-QR-9Jh">
+                        <barButtonItem key="leftBarButtonItem" image="Cancel" id="6vp-c3-joH"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deletionButton" destination="NNd-Cv-5J6" id="qTt-My-14v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GlW-Fn-bBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cK9-wE-MwZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-4937" y="2327"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="PyD-I9-eRF"/>
         <segue reference="3ih-yU-KBO"/>
-        <segue reference="bYc-uf-2Ig"/>
-        <segue reference="Kqn-NN-fgE"/>
+        <segue reference="LHM-rm-xIS"/>
+        <segue reference="z8o-4g-jjT"/>
         <segue reference="8oN-dd-oLx"/>
-        <segue reference="JCE-42-lkN"/>
+        <segue reference="G5d-Ke-3ro"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="+ Button" width="48" height="48"/>
