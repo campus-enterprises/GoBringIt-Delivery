@@ -82,7 +82,7 @@ extension UIViewController {
             button.setTitle("Password must be at least 4 characters.", for: .normal)
             button.isEnabled = false
         case .userAlreadyExists:
-            button.setTitle("Email already connected to an account. ", for: .normal)
+            button.setTitle("Email already connected to an account.", for: .normal)
             button.isEnabled = false
         case .incorrectAddress:
             button.setTitle("Incorrect address. Please try again.", for: .normal)

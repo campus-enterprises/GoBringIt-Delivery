@@ -836,7 +836,7 @@
             <objects>
                 <viewController id="eMv-Jo-EBh" customClass="NewCreditCardVC" customModule="BringIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FZ8-FR-wLv">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHC-Or-Rrc">
@@ -861,7 +861,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARD DETAILS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiD-Qd-iNl">
-                                <rect key="frame" x="10" y="91" width="121" height="26"/>
+                                <rect key="frame" x="10" y="47" width="121" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="eXv-T2-57S"/>
                                 </constraints>
@@ -921,7 +921,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Oab-sr-hk5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
-                                <state key="normal" title="Save Credit Card">
+                                <state key="normal" title="Save Credit/Debit Card">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -4180,7 +4180,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="8jq-rg-IFk">
-                                <rect key="frame" x="-3" y="-8" width="386" height="847"/>
+                                <rect key="frame" x="-4" y="-8" width="386" height="846"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o60-y1-mby">
@@ -4208,7 +4208,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4G-eV-1qQ">
-                                <rect key="frame" x="-3" y="137.33333333333334" width="414" height="56"/>
+                                <rect key="frame" x="-4" y="137.33333333333334" width="414" height="56"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Whb-GO-dU2"/>
@@ -4277,7 +4277,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="zV7-hm-fG5"/>
                                 </constraints>
-                                <string key="text">Hello! All GoBringIt users must now have a valid credit card on file in order to ensure payment can be collected after you order. Don't worry: if you are using Food Points, nothing is changing. You will only be charged to your credit card if you have an insufficient balance on your DukeCard or fail to accept delivery. Please contact us if you have any questions or concerns about this new policy, and thank you for using GoBringIt!</string>
+                                <string key="text">Hello! All GoBringIt users must now have a valid credit or debit card on file in order to ensure payment can be collected after you order. Don't worry: if you are using Food Points, nothing is changing. You will only be charged to your credit or debit card if you have an insufficient balance on your DukeCard or fail to accept delivery. Please contact us if you have any questions or concerns about this new policy, and thank you for using GoBringIt!</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="24"/>
                                 <color key="textColor" red="0.42776564654615734" green="0.42776564654615734" blue="0.42776564654615734" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -4290,7 +4290,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Add Credit Card">
+                                <state key="normal" title="Add Credit/Debit Card">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -4730,7 +4730,7 @@
         <segue reference="3ih-yU-KBO"/>
         <segue reference="LHM-rm-xIS"/>
         <segue reference="z8o-4g-jjT"/>
-        <segue reference="8oN-dd-oLx"/>
+        <segue reference="hp5-FU-OE3"/>
         <segue reference="G5d-Ke-3ro"/>
     </inferredMetricsTieBreakers>
     <resources>

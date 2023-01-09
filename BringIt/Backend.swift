@@ -57,7 +57,7 @@ extension APICalls : TargetType {
         case .fetchRestaurantData:
             return "/fetchRestaurantData.php"
         case .fetchRestaurantsInfo:
-            return "/fetchRestaurantsInfo.php"
+            return "/fetchRestaurantsInfoNEW.php"
         case .fetchMenuCategories(_):
             return "/fetchMenuCategories.php"
         case .fetchFeaturedDishes(_):
@@ -101,9 +101,9 @@ extension APICalls : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .fetchPromotions, .fetchRestaurantData, .fetchRestaurantsInfo, .fetchVersionNumber, .fetchAPIKey:
+        case .fetchPromotions, .fetchRestaurantData, .fetchVersionNumber, .fetchAPIKey:
             return .get
-        case .signInUser, .signUpUser, .deleteAccount, .updateCurrentAddress, .addItemToCart, .addOrder, .updateAccountInfo, .resetPassword, .fetchAccountInfo, .fetchAccountAddress, .fetchMenuCategories, .fetchFeaturedDishes, .fetchMenuItems, .fetchWaitTime, .stripeAddCard, .stripeRetrieveCards, .stripeCharge, .stripeEphemeralKeys, .verifyAddress, .getDeliveryFee:
+        case .signInUser, .signUpUser, .deleteAccount, .updateCurrentAddress, .addItemToCart, .addOrder, .updateAccountInfo, .resetPassword, .fetchAccountInfo, .fetchAccountAddress, .fetchMenuCategories, .fetchFeaturedDishes, .fetchMenuItems, .fetchWaitTime, .stripeAddCard, .stripeRetrieveCards, .stripeCharge, .stripeEphemeralKeys, .verifyAddress, .getDeliveryFee, .fetchRestaurantsInfo:
             return .post
         }
     }
@@ -114,8 +114,10 @@ extension APICalls : TargetType {
     
     var task: Task {
         switch self {
-        case .fetchPromotions, .fetchRestaurantData, .fetchRestaurantsInfo, .fetchVersionNumber, .fetchAPIKey:
+        case .fetchPromotions, .fetchRestaurantData, .fetchVersionNumber, .fetchAPIKey:
             return .requestPlain
+        case .fetchRestaurantsInfo:
+            return .requestParameters(parameters: ["version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String], encoding: JSONEncoding.default)
         case .fetchMenuCategories(let restaurantID):
             return .requestParameters(parameters: ["restaurantID": restaurantID], encoding: JSONEncoding.default)
         case .fetchFeaturedDishes(let restaurantID):

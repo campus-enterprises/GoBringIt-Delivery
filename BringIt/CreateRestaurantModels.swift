@@ -187,6 +187,8 @@ extension RestaurantsHomeViewController {
                             restaurant.paymentOptions = retrievedRestaurantInfo["paymentOptions"] as! String
                             restaurant.pickupHours = retrievedRestaurantInfo["pickupHours"] as? String ?? ""
                             
+                            print("we are here")
+                            
                             // Check if restaurant has a saved address
                             if let address = retrievedRestaurantInfo["restaurantAddress"] as? String {
                                 restaurant.address = address
